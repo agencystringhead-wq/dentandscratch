@@ -45,17 +45,30 @@ export const NAV_LINKS: NavItem[] = [
   { label: 'About',          href: '/about-us/' },
   { label: 'Service Areas',  href: '/service-areas/', dropdown: SERVICE_AREAS_NAV },
   { label: 'Reviews',        href: '/reviews/' },
-  { label: 'FAQs',           href: '/faqs/' },
-  { label: 'Blog',           href: '/blog/' },
   { label: 'Contact',        href: '/contact/' },
 ]
 
 export const FOOTER_NAV = {
+  pages: [
+    { label: 'FAQs', href: '/faqs/' },
+    { label: 'Blog', href: '/blog/' },
+  ],
   legal: [
     { label: 'Privacy Policy',     href: '/privacy-policy/' },
     { label: 'Terms & Conditions', href: '/terms-conditions/' },
     { label: 'Sitemap',            href: '/site-map/' },
   ],
+} as const
+
+export const TOP_BAR = {
+  servicing:      'Servicing South East Melbourne for over 30 years',
+  servicingShort: 'Servicing South East Melbourne',
+  rating: {
+    score:     '4.9',
+    label:     'Google reviews',
+    ariaLabel: '4.9 out of 5 on Google',
+    href:      '/reviews/',
+  },
 } as const
 
 export const HERO = {

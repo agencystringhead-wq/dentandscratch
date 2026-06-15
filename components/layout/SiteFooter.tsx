@@ -33,6 +33,25 @@ export function SiteFooter() {
             </p>
           </div>
 
+          {/* Explore */}
+          <div>
+            <p className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted mb-4">
+              Explore
+            </p>
+            <ul className="flex flex-col gap-3 list-none p-0 m-0">
+              {FOOTER_NAV.pages.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="font-body font-medium text-[16px] text-neutral-light hover:text-white transition-colors no-underline"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Services */}
           <div>
             <p className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted mb-4">
