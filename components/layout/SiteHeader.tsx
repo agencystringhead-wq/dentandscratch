@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Camera, ArrowRight } from 'lucide-react'
 import { MobileMenu } from './MobileMenu'
 import { NAV_LINKS } from '@/lib/content'
 
@@ -20,7 +20,7 @@ export function SiteHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-50 transition-colors duration-150 ${
+        className={`sticky top-0 z-50 transition-colors duration-150 pt-5 ${
           scrolled ? 'bg-neutral-page border-b border-neutral-border' : 'bg-transparent'
         }`}
       >
@@ -32,7 +32,7 @@ export function SiteHeader() {
               src="/logo/logo.webp"
               width={500}
               height={177}
-              className="h-12 w-auto"
+              className="h-14 w-auto"
               priority
               alt="Dent and Scratch Direct"
             />
@@ -50,7 +50,7 @@ export function SiteHeader() {
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-1 font-body font-normal text-[16px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
+                    className="flex items-center gap-1 font-body font-normal text-[14px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
                     aria-expanded={openDropdown === item.label}
                   >
                     {item.label}
@@ -79,7 +79,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-body font-normal text-[16px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
+                  className="font-body font-normal text-[14px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -91,9 +91,26 @@ export function SiteHeader() {
           <div className="ml-auto lg:ml-0 flex items-center justify-end gap-4">
             <Link
               href="/free-quote/"
-              className="hidden sm:inline-block bg-green-primary text-white font-body font-semibold text-[17px] px-8 py-3 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
+              className="group hidden sm:inline-flex items-center gap-3 bg-green-primary text-white no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
+              style={{ padding: '14px 24px' }}
             >
-              Get free quote
+              <Camera size={18} aria-hidden="true" className="shrink-0" />
+              <span className="flex flex-col items-start gap-[3px]">
+                <span
+                  className="font-body font-medium uppercase tracking-eyebrow leading-none"
+                  style={{ fontSize: '10px', opacity: 0.7 }}
+                >
+                  FREE · NO OBLIGATION
+                </span>
+                <span className="font-body font-bold leading-none" style={{ fontSize: '16px' }}>
+                  Get free quote
+                </span>
+              </span>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+                className="shrink-0 transition-transform motion-safe:group-hover:translate-x-1"
+              />
             </Link>
 
             {/* Hamburger */}
