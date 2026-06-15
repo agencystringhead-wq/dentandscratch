@@ -72,6 +72,21 @@ export const SERVICES_SECTION = {
   cta:     { label: 'View All Services', href: '/services/' },
 }
 
+// Dark "Why choose us" band. Icon names map to lucide-react.
+export const WHY_CHOOSE = {
+  heading: 'Why drivers pick us over the panel shop',
+  items: [
+    { icon: 'MapPin',      title: 'We come to you',                  desc: 'Repairs done at your home or work. No dropping the car off, no waiting around.' },
+    { icon: 'Clock',       title: 'Done in 2–3 hours',               desc: 'Most jobs finished while you get on with your day, not gone for days like a panel shop.' },
+    { icon: 'ShieldCheck', title: 'Lifetime workmanship guarantee',  desc: 'Every repair is backed for the life you own the car.' },
+    { icon: 'BadgeCheck',  title: 'Trusted by dealers and drivers',  desc: 'Dealerships and private customers rely on us to get it right first time.' },
+    { icon: 'FileX',       title: 'No insurance claim needed',       desc: 'Sort the damage without a claim, so your no-claims bonus stays intact.' },
+    { icon: 'PiggyBank',   title: "Costs less than you'd think",     desc: 'Specialised mobile methods mean most repairs come in well under panel-shop prices.' },
+    { icon: 'ReceiptText', title: 'Honest, upfront pricing',         desc: 'A free quote before any work starts. No surprise fees.' },
+    { icon: 'Wrench',      title: 'Fully qualified specialist',      desc: "Trained in both spray painting and panel beating, so it's done properly." },
+  ],
+} as const
+
 export const SERVICE_AREAS_NAV = [
   { label: 'Berwick & South-East Corridor',   href: '/service-areas/south-east-melbourne/' },
   { label: 'Greater Dandenong & Monash',       href: '/service-areas/dandenong-monash/' },

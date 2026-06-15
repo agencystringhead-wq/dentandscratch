@@ -2,7 +2,7 @@ import { HeroSection }         from '@/components/sections/HeroSection'
 import { AfterBannerSection }  from '@/components/sections/AfterBannerSection'
 import { WorkSection }         from '@/components/sections/WorkSection'
 import { ServicesSection }     from '@/components/sections/ServicesSection'
-import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
+import { WhyChooseSection }    from '@/components/sections/WhyChooseSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
 import { AboutSection }        from '@/components/sections/AboutSection'
 import { ProcessSection }      from '@/components/sections/ProcessSection'
@@ -17,7 +17,7 @@ export default function HomePage() {
       <AfterBannerSection />
       <WorkSection />
       <ServicesSection />
-      <FeatureCardsSection />
+      <WhyChooseSection />
       <WhyUsSection />
       <AboutSection />
       <ProcessSection />
