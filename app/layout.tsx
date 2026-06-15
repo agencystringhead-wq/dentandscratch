@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Bricolage_Grotesque, Inter_Tight } from 'next/font/google'
 import '@/styles/globals.css'
+import { TopBar }    from '@/components/layout/TopBar'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SmoothScrollProvider } from '@/components/ui/SmoothScrollProvider'
@@ -61,6 +62,7 @@ export default function RootLayout({
       </head>
       <body>
         <SmoothScrollProvider>
+          <TopBar />
           <SiteHeader />
           {children}
           <SiteFooter />

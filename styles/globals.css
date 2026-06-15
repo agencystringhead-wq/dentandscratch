@@ -29,3 +29,14 @@
     @apply outline-2 outline-offset-2 outline-green-primary;
   }
 }
+
+@keyframes topbar-dot-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 144, 40, 0.6); }
+  50%       { box-shadow: 0 0 0 4px rgba(0, 144, 40, 0); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .topbar-dot {
+    animation: topbar-dot-glow 2s ease-in-out infinite;
+  }
+}
