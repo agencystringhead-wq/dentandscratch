@@ -161,6 +161,24 @@ export const AFTER_BANNER = {
   ],
 } as const
 
+// Before & After work cards. Each file is a single composite before|after image.
+// Alt text is neutral until real repair/suburb details are confirmed; add `suburb` when known.
+export type WorkCard =
+  | { kind: 'composite'; image: string; alt: string; suburb?: string }
+  | { kind: 'pair'; before: string; after: string; alt: string; suburb?: string }
+
+export const WORK_SECTION = {
+  eyebrow: 'Before & After Work',
+  heading: 'Real mobile dent and scratch repairs across South East Melbourne',
+  cta:     { label: 'View All Work', href: '/our-work/' },
+  cards: [
+    { kind: 'composite', image: '/images/work/Before-after-case-study-1.png', alt: 'A car before and after a mobile dent and scratch repair' },
+    { kind: 'composite', image: '/images/work/Before-after-case-study-2.png', alt: 'A car before and after a mobile dent and scratch repair' },
+    { kind: 'composite', image: '/images/work/Before-after-case-study-3.png', alt: 'A car before and after a mobile dent and scratch repair' },
+    { kind: 'composite', image: '/images/work/Before-after-case-study-4.png', alt: 'A car before and after a mobile dent and scratch repair' },
+  ] as WorkCard[],
+}
+
 export const TRUST_STATS = [
   { value: '30yr', label: 'On the tools, around Melbourne' },
   { value: '~2h',  label: 'Typical repair, at your place' },

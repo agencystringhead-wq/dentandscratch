@@ -1,5 +1,6 @@
 import { HeroSection }         from '@/components/sections/HeroSection'
 import { AfterBannerSection }  from '@/components/sections/AfterBannerSection'
+import { WorkSection }         from '@/components/sections/WorkSection'
 import { ServicesGrid }        from '@/components/sections/ServicesGrid'
 import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
@@ -14,6 +15,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <AfterBannerSection />
+      <WorkSection />
       <ServicesGrid />
       <FeatureCardsSection />
       <WhyUsSection />
