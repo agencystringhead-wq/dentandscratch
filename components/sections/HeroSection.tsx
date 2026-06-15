@@ -17,9 +17,14 @@ export function HeroSection() {
           {/* Left — headline + social proof + ticks. lg:pb pushes the band start (and the
               bottom-anchored form) down together, lowering the form without changing its overlap. */}
           <div className="lg:w-[62%] lg:pb-[145px]">
-            <span className="block font-body font-medium text-[12px] tracking-eyebrow uppercase text-green-primary mb-4">
-              {HERO.kicker}
-            </span>
+            <div className="mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#E3F0E6]" style={{ padding: '6px 14px' }}>
+                <span className="topbar-dot w-2 h-2 rounded-full bg-green-primary shrink-0" aria-hidden="true" />
+                <span className="font-body font-medium text-[13px] text-neutral-ink">
+                  {HERO.kicker}
+                </span>
+              </span>
+            </div>
             <h1
               className="font-display font-bold text-neutral-ink m-0 tracking-tight"
               style={{ fontSize: 'clamp(34px,4.4vw,50px)', lineHeight: '1.08' }}
@@ -42,7 +47,7 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-5 mt-9">
               <Link
                 href="#quote"
-                className="inline-block bg-neutral-ink text-white font-body font-medium text-[16px] px-8 py-4 no-underline hover:opacity-90 transition-opacity"
+                className="inline-block rounded-[10px] bg-neutral-ink text-white font-body font-medium text-[16px] px-8 py-4 no-underline hover:opacity-90 transition-opacity"
               >
                 Get free quote
               </Link>
