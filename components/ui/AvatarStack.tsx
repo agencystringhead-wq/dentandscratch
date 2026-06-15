@@ -1,8 +1,9 @@
 'use client'
 import { useState } from 'react'
+import Image from 'next/image'
 
-// Overlapping circular avatars. Missing files fall back to a neutral grey circle,
-// so the layout never breaks before real photos are supplied.
+// Overlapping ~40px circular avatars with a white ring. Missing files fall back
+// to a neutral grey circle, so the layout never breaks before real photos exist.
 export function AvatarStack({ srcs }: { srcs: readonly string[] }) {
   return (
     <span className="flex items-center" aria-hidden="true">
@@ -17,15 +18,16 @@ function Avatar({ src, first }: { src: string; first: boolean }) {
   const [ok, setOk] = useState(true)
   return (
     <span
-      className="relative w-9 h-9 rounded-full overflow-hidden bg-neutral-light border-2 border-neutral-page shrink-0"
+      className="relative w-10 h-10 rounded-full overflow-hidden bg-neutral-light border-2 border-white shrink-0"
       style={{ marginLeft: first ? 0 : '-10px' }}
     >
       {ok && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
+        <Image
           src={src}
           alt=""
-          className="w-full h-full object-cover block"
+          width={40}
+          height={40}
+          className="w-full h-full object-cover"
           onError={() => setOk(false)}
         />
       )}

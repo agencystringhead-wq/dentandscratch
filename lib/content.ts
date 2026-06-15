@@ -109,13 +109,14 @@ export const TOP_BAR = {
 } as const
 
 export const HERO = {
-  heading:     'Dents and scratches gone,',
-  accentLine:  'right in your driveway.',
+  kicker:      'Mobile dent & scratch repair with 30 years of experience',
+  heading:     "Melbourne's go-to mobile",
+  accentLine:  'dent & scratch repair expert',
   para:        "We're Dent and Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
   checks:      ['We come to you', 'Same day quotes', 'Fully insured'],
   socialProof: '4.9 · hundreds of happy drivers',
-  // PLACEHOLDER — drop real avatar photos at these paths; missing files fall back to grey circles
-  avatars:     ['/images/avatars/1.jpg', '/images/avatars/2.jpg', '/images/avatars/3.jpg'],
+  // Real avatars (optimised WebP). Missing files fall back to grey circles.
+  avatars:     ['/images/avatars/avatar-1.webp', '/images/avatars/avatar-2.webp', '/images/avatars/avatar-3.webp', '/images/avatars/avatar-4.webp'],
   bandImage:   '/images/hero-band.webp',
   bandAlt:     "Mobile dent repair at a customer's driveway",
 } as const

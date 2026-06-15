@@ -14,13 +14,18 @@ export function HeroSection() {
       <div className="max-w-[1200px] mx-auto px-5 lg:px-10 relative z-10" style={{ paddingTop: '64px' }}>
         <div className="relative">
 
-          {/* Left — headline + social proof + ticks */}
-          <div className="lg:w-[60%]">
+          {/* Left — headline + social proof + ticks. lg:pb pushes the band start (and the
+              bottom-anchored form) down together, lowering the form without changing its overlap. */}
+          <div className="lg:w-[62%] lg:pb-[145px]">
+            <span className="block font-body font-medium text-[12px] tracking-eyebrow uppercase text-green-primary mb-4">
+              {HERO.kicker}
+            </span>
             <h1
               className="font-display font-bold text-neutral-ink m-0 tracking-tight"
-              style={{ fontSize: 'clamp(40px,5.6vw,74px)', lineHeight: '1.04' }}
+              style={{ fontSize: 'clamp(34px,4.4vw,50px)', lineHeight: '1.08' }}
             >
-              {HERO.heading}{' '}
+              {HERO.heading}
+              <br />
               <span className="text-green-primary underline decoration-green-primary decoration-[4px] underline-offset-[8px]">
                 {HERO.accentLine}
               </span>
