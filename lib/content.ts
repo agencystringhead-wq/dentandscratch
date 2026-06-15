@@ -54,6 +54,12 @@ export const SERVICES_MEGA = {
   promptSub:    'Send Diarmuid a photo and get a price back, usually within the hour.',
   viewAllLabel: 'View all services →',
   viewAllHref:  '/services/',
+  feature: {
+    // PLACEHOLDER — Unsplash stock, swap for a real Diarmuid repair photo before go-live
+    image:   'https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?w=900&q=80&auto=format&fit=crop',
+    alt:     'Bodywork being finished by hand',
+    caption: 'Most repairs done in about 2 hours',
+  },
 } as const
 
 // Desktop "Service Areas" mega-menu, grouped by council (mobile uses SERVICE_AREAS_NAV accordion)
@@ -69,6 +75,14 @@ export const SERVICE_AREAS_MEGA = {
   ],
   viewAllLabel: 'View all service areas →',
   viewAllHref:  '/service-areas/',
+  feature: {
+    // PLACEHOLDER — Unsplash stock, swap for a real on-location photo before go-live
+    image:   'https://images.unsplash.com/photo-1694678505383-676d78ea3b96?w=900&q=80&auto=format&fit=crop',
+    alt:     'A car being cleaned up on location',
+    eyebrow: 'We come to you',
+    lead:    'Based in Berwick, mobile right across the south east.',
+    caption: 'No workshop visit, no drop-off',
+  },
 } as const
 
 export const FOOTER_NAV = {
