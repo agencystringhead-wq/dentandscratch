@@ -27,19 +27,21 @@ export function SiteHeader() {
       >
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center">
 
-          {/* Logo */}
-          <Link href="/" className="shrink-0 lg:flex-1 no-underline">
-            <Image
-              src="/logo/logo.webp"
-              width={500}
-              height={177}
-              className="h-14 w-auto"
-              priority
-              alt="Dent and Scratch Direct"
-            />
-          </Link>
+          {/* Zone 1 — logo, left-aligned */}
+          <div className="flex-none lg:flex-1 flex items-center justify-start">
+            <Link href="/" className="no-underline">
+              <Image
+                src="/logo/logo.webp"
+                width={500}
+                height={177}
+                className="h-14 w-auto"
+                priority
+                alt="Dent and Scratch Direct"
+              />
+            </Link>
+          </div>
 
-          {/* Desktop nav — flex-1 so it occupies the true centre third */}
+          {/* Zone 2 — nav links, true centre */}
           <nav className="hidden lg:flex flex-1 items-center justify-center gap-6" aria-label="Main navigation">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
@@ -88,8 +90,8 @@ export function SiteHeader() {
             )}
           </nav>
 
-          {/* Right zone — CTA + hamburger */}
-          <div className="ml-auto lg:ml-0 lg:flex-1 flex items-center justify-end gap-4">
+          {/* Zone 3 — CTA + hamburger, right-aligned */}
+          <div className="flex-none ml-auto lg:ml-0 lg:flex-1 flex items-center justify-end gap-4">
             <QuoteButton className="hidden sm:inline-flex" />
 
             {/* Hamburger */}
