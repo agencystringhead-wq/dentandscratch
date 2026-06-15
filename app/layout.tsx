@@ -16,7 +16,7 @@ const bricolage = Bricolage_Grotesque({
 
 const interTight = Inter_Tight({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['400', '500', '800'],
   variable: '--font-inter-tight',
   display: 'swap',
 })

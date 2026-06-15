@@ -1,5 +1,5 @@
 import { HeroSection }         from '@/components/sections/HeroSection'
-import { StatsBar }            from '@/components/sections/StatsBar'
+import { AfterBannerSection }  from '@/components/sections/AfterBannerSection'
 import { ServicesGrid }        from '@/components/sections/ServicesGrid'
 import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <StatsBar />
+      <AfterBannerSection />
       <ServicesGrid />
       <FeatureCardsSection />
       <WhyUsSection />

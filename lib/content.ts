@@ -143,6 +143,24 @@ export const HERO_FORM = {
   replyNote:          'We usually reply within a few hours.',
 } as const
 
+// "By the numbers" band shown directly under the hero. Icon names map to lucide-react.
+export const AFTER_BANNER = {
+  badges: ['Car', 'Wrench', 'Droplet', 'ShieldCheck', 'Hammer', 'MapPin', 'Sun'],
+  headline: [
+    { type: 'text', value: 'More than a quick fix' },
+    { type: 'pill', src: '/images/hero-band.webp',          alt: 'Mobile repair underway' },
+    { type: 'text', value: '— proper mobile dent and scratch repair' },
+    { type: 'pill', src: '/images/avatars/avatar-2.webp',   alt: 'A happy customer' },
+    { type: 'text', value: 'done right where your car is parked.' },
+  ],
+  stats: [
+    { value: 30,   suffix: '+', label: 'Years of Experience' },
+    { value: 5600, suffix: '+', label: 'Cars Repaired' },
+    { value: 4800, suffix: '+', label: 'Happy Clients' },
+    { value: 140,  suffix: '+', label: 'Top Reviews' },
+  ],
+} as const
+
 export const TRUST_STATS = [
   { value: '30yr', label: 'On the tools, around Melbourne' },
   { value: '~2h',  label: 'Typical repair, at your place' },
