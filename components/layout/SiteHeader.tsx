@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { MobileMenu } from './MobileMenu'
-import { NAV_LINKS, BUSINESS } from '@/lib/content'
+import { NAV_LINKS } from '@/lib/content'
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen]         = useState(false)
@@ -24,7 +24,7 @@ export function SiteHeader() {
           scrolled ? 'bg-neutral-page border-b border-neutral-border' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center gap-6">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
 
           {/* Logo */}
           <Link href="/" className="shrink-0 no-underline">
@@ -32,14 +32,14 @@ export function SiteHeader() {
               src="/logo/logo.webp"
               width={500}
               height={177}
-              className="h-8 w-auto"
+              className="h-12 w-auto"
               priority
               alt="Dent and Scratch Direct"
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-6 flex-1" aria-label="Main navigation">
+          {/* Desktop nav — centred in middle grid column */}
+          <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
                 <div
@@ -87,18 +87,11 @@ export function SiteHeader() {
             )}
           </nav>
 
-          {/* Right side */}
-          <div className="ml-auto flex items-center gap-4">
-            <a
-              href={BUSINESS.phoneHref}
-              className="hidden lg:block font-body font-medium text-[16px] text-neutral-ink no-underline hover:text-neutral-muted transition-colors whitespace-nowrap"
-            >
-              {BUSINESS.phone}
-            </a>
-
+          {/* Right zone — CTA + hamburger */}
+          <div className="ml-auto lg:ml-0 flex items-center justify-end gap-4">
             <Link
               href="/free-quote/"
-              className="hidden sm:inline-block bg-green-primary text-white font-body font-medium text-[16px] px-6 py-[10px] no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
+              className="hidden sm:inline-block bg-green-primary text-white font-body font-semibold text-[17px] px-8 py-3 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
             >
               Get free quote
             </Link>
