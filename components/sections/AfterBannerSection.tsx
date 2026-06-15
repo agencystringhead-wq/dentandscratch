@@ -53,8 +53,17 @@ export function AfterBannerSection() {
         {/* Stat row */}
         <AnimateIn delay={0.05}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-8 mt-16 lg:divide-x lg:divide-neutral-border">
-            {AFTER_BANNER.stats.map((s) => (
-              <div key={s.label} className="flex flex-col items-center px-6">
+            {AFTER_BANNER.stats.map((s, i) => {
+              const last = i === AFTER_BANNER.stats.length - 1
+              // At lg the row is one line spanning the wrapper: flush the first stat to the
+              // left edge and the last stat to the right edge; the middle two stay centred.
+              const edge = i === 0
+                ? 'lg:items-start lg:text-left lg:pl-0'
+                : last
+                  ? 'lg:items-end lg:text-right lg:pr-0'
+                  : ''
+              return (
+              <div key={s.label} className={`flex flex-col items-center text-center px-6 ${edge}`}>
                 <span
                   className="font-body font-extrabold text-neutral-ink leading-none"
                   style={{ fontSize: 'clamp(38px,5vw,56px)', letterSpacing: '-0.02em' }}
@@ -66,7 +75,8 @@ export function AfterBannerSection() {
                   {s.label}
                 </span>
               </div>
-            ))}
+              )
+            })}
           </div>
         </AnimateIn>
 
