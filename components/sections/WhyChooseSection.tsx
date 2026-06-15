@@ -17,14 +17,14 @@ export function WhyChooseSection() {
 
       <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
         <h2
-          className="font-display font-bold text-white max-w-[16em]"
-          style={{ fontSize: 'clamp(28px,3.5vw,44px)', lineHeight: '1.2' }}
+          className="font-display font-normal text-white max-w-[11em]"
+          style={{ fontSize: 'clamp(32px,4.4vw,52px)', lineHeight: '1.3' }}
         >
           {WHY_CHOOSE.heading}
         </h2>
 
         <StaggerIn
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 mt-14"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 mt-20"
           staggerDelay={0.07}
         >
           {WHY_CHOOSE.items.map((item) => {
@@ -32,7 +32,7 @@ export function WhyChooseSection() {
             return (
               <StaggerItem key={item.title}>
                 <div className="flex flex-col">
-                  {Icon && <Icon size={28} className="text-green-primary" />}
+                  {Icon && <Icon size={40} className="text-green-primary" />}
                   <h3 className="font-body font-bold text-[17px] text-white mt-5">{item.title}</h3>
                   <p className="font-body font-medium text-[15px] text-neutral-light leading-relaxed mt-2">
                     {item.desc}
@@ -47,13 +47,23 @@ export function WhyChooseSection() {
   )
 }
 
-// Cream stepped pixel-notch in the top-right corner (reveals the page colour).
+// Cream stepped-pixel staircase descending from the top-right corner.
 function NotchCorner() {
+  // Each square steps down by its own height and left by its own width.
+  const steps = [
+    { size: 48, top: 0,  right: 0 },
+    { size: 32, top: 48, right: 48 },
+    { size: 20, top: 80, right: 80 },
+  ]
   return (
     <div className="absolute top-0 right-0 pointer-events-none" aria-hidden="true">
-      <div className="absolute top-0 right-0 bg-neutral-page" style={{ width: '76px', height: '48px' }} />
-      <div className="absolute bg-neutral-page" style={{ top: '48px', right: '44px', width: '40px', height: '30px' }} />
-      <div className="absolute bg-neutral-page" style={{ top: '78px', right: '20px', width: '24px', height: '18px' }} />
+      {steps.map((s, i) => (
+        <div
+          key={i}
+          className="absolute bg-neutral-page"
+          style={{ top: `${s.top}px`, right: `${s.right}px`, width: `${s.size}px`, height: `${s.size}px` }}
+        />
+      ))}
     </div>
   )
 }
