@@ -1,23 +1,24 @@
 import { TRUST_STATS } from '@/lib/content'
-import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function StatsBar() {
   return (
-    <section className="bg-white border-t border-b border-neutral-border">
-      <div className="max-w-[1200px] mx-auto px-[22px] py-[26px]">
-        <StaggerIn
-          className="flex flex-wrap items-center justify-between"
-          staggerDelay={0.12}
-        >
+    <section className="bg-neutral-page border-t border-b border-neutral-border" style={{ padding: '40px 0' }}>
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {TRUST_STATS.map(({ value, label }) => (
-            <StaggerItem key={value} className="flex items-center gap-3 flex-[1_1_200px] py-1">
-              <span className="font-display font-extrabold text-[34px] text-green-primary tracking-[-0.03em]">
+            <div key={value} className="flex flex-col gap-2">
+              <span
+                className="font-body font-medium text-neutral-ink"
+                style={{ fontSize: '44px', lineHeight: '52.8px' }}
+              >
                 {value}
               </span>
-              <span className="text-[13.5px] text-neutral-muted leading-[1.3]">{label}</span>
-            </StaggerItem>
+              <span className="font-body font-medium text-[16px] text-neutral-muted leading-snug">
+                {label}
+              </span>
+            </div>
           ))}
-        </StaggerIn>
+        </div>
       </div>
     </section>
   )

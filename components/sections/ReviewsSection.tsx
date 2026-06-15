@@ -1,73 +1,69 @@
 import { REVIEWS } from '@/lib/content'
-import { AnimateIn } from '@/components/ui/AnimateIn'
 import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function ReviewsSection() {
-  const { eyebrow, heading, items, badges } = REVIEWS
+  const { eyebrow, heading, items } = REVIEWS
 
   return (
     <section
       id="reviews"
-      className="scroll-mt-[84px] bg-white"
-      style={{ padding: 'clamp(48px,7vw,90px) 22px' }}
+      className="scroll-mt-[72px] bg-neutral-page border-t border-neutral-border"
+      style={{ padding: '80px 0' }}
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
+
         {/* Header */}
-        <AnimateIn className="text-center mb-[32px]">
-          <span className="font-label font-semibold text-[13px] tracking-[0.2em] uppercase text-green-primary">
+        <div className="mb-12">
+          <span className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted">
             {eyebrow}
           </span>
           <h2
-            className="font-display font-extrabold tracking-[-0.025em] leading-[1.05] mt-3"
-            style={{ fontSize: 'clamp(28px,4vw,46px)' }}
+            className="font-display font-bold text-neutral-ink mt-3"
+            style={{ fontSize: 'clamp(28px,3.5vw,44px)', lineHeight: '1.2' }}
           >
             {heading}
           </h2>
-          <div className="text-[#F5A524] text-[20px] tracking-[2px] mt-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </AnimateIn>
+        </div>
 
         {/* Review cards */}
         <StaggerIn
-          className="grid gap-[18px]"
-          style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))' }}
-          staggerDelay={0.14}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+          staggerDelay={0.1}
         >
           {items.map(({ text, name, suburb, initials, gradient }) => (
             <StaggerItem key={name}>
-            <div
-              className="bg-neutral-page border border-neutral-border rounded-[20px] p-[26px] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9ed8af] hover:shadow-[0_18px_36px_-22px_rgba(14,18,14,0.22)] h-full"
-            >
-              <div className="text-[#F5A524] text-[15px] tracking-[1px]">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-              <p className="text-[15.5px] leading-[1.6] text-[#2c3a2f] mt-3 mb-[18px]">{text}</p>
-              <div className="flex items-center gap-[11px]">
-                <div
-                  className="w-[38px] h-[38px] rounded-full text-white flex items-center justify-center font-bold text-[14px] shrink-0"
-                  style={{ background: gradient }}
+              <article className="bg-white border border-neutral-border p-8 flex flex-col h-full">
+                {/* Opening quote mark */}
+                <span
+                  className="font-body select-none text-neutral-border"
+                  style={{ fontSize: '80px', lineHeight: '1', display: 'block', marginTop: '-16px', marginBottom: '-8px' }}
+                  aria-hidden="true"
                 >
-                  {initials}
+                  &ldquo;
+                </span>
+
+                <p className="font-body font-medium text-[16px] text-neutral-ink leading-relaxed flex-1">
+                  {text}
+                </p>
+
+                <div className="flex items-center gap-3 mt-6 pt-6 border-t border-neutral-border">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-body font-medium text-white text-[14px] shrink-0"
+                    style={{ background: gradient }}
+                  >
+                    {initials}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-body font-medium text-[15px] text-neutral-ink">{name}</div>
+                    <div className="font-body font-medium text-[14px] text-neutral-muted">{suburb}</div>
+                  </div>
+                  <div className="text-amber-400 text-[14px] shrink-0">★★★★★</div>
                 </div>
-                <div>
-                  <div className="font-semibold text-[14px]">{name}</div>
-                  <div className="text-[12.5px] text-neutral-muted">{suburb}</div>
-                </div>
-              </div>
-            </div>
+              </article>
             </StaggerItem>
           ))}
         </StaggerIn>
 
-        {/* Trust badges */}
-        <div className="flex flex-wrap gap-[14px] justify-center mt-[34px] items-center">
-          {badges.map(({ icon, text }) => (
-            <div
-              key={text}
-              className="flex items-center gap-[9px] bg-green-bg border border-[#c8ebd2] px-[18px] py-[11px] rounded-chip"
-            >
-              <span className="text-[16px]">{icon}</span>
-              <span className="font-semibold text-[13.5px] text-green-dark">{text}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

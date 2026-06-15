@@ -1,26 +1,30 @@
 'use client'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { MobileMenu } from './MobileMenu'
-import { NAV_LINKS } from '@/lib/content'
-
-function ChevronDown({ className }: { className?: string }) {
-  return (
-    <svg className={className} width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true">
-      <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
+import { NAV_LINKS, BUSINESS } from '@/lib/content'
 
 export function SiteHeader() {
-  const [menuOpen, setMenuOpen]       = useState(false)
+  const [menuOpen, setMenuOpen]         = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [scrolled, setScrolled]         = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/[0.88] backdrop-blur-md border-b border-neutral-border">
-        <div className="max-w-7xl mx-auto px-5 h-16 flex items-center gap-4">
+      <header
+        className={`sticky top-0 z-50 transition-colors duration-150 ${
+          scrolled ? 'bg-neutral-page border-b border-neutral-border' : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center gap-6">
 
           {/* Logo */}
           <Link href="/" className="shrink-0 no-underline">
@@ -28,38 +32,42 @@ export function SiteHeader() {
               src="/logo/logo.webp"
               width={500}
               height={177}
-              className="h-9 w-auto"
+              className="h-8 w-auto"
               priority
               alt="Dent and Scratch Direct"
             />
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-[14px] ml-3" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-6 flex-1" aria-label="Main navigation">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
                 <div
                   key={item.href}
                   className="relative"
-                  onMouseEnter={() => setOpenDropdown(item.href)}
+                  onMouseEnter={() => setOpenDropdown(item.label)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   <Link
                     href={item.href}
-                    className="flex items-center gap-[5px] text-neutral-muted font-medium text-[13.5px] hover:text-neutral-ink transition-colors no-underline"
-                    aria-expanded={openDropdown === item.href}
+                    className="flex items-center gap-1 font-body font-normal text-[16px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
+                    aria-expanded={openDropdown === item.label}
                   >
                     {item.label}
-                    <ChevronDown className={`transition-transform duration-150 ${openDropdown === item.href ? 'rotate-180' : ''}`} />
+                    <ChevronDown
+                      size={14}
+                      className={`shrink-0 transition-transform duration-150 ${openDropdown === item.label ? 'rotate-180' : ''}`}
+                    />
                   </Link>
-                  {openDropdown === item.href && (
-                    <div className="absolute top-full left-0 mt-1 w-60 bg-white rounded-xl shadow-lg border border-neutral-border py-1.5 z-50">
+
+                  {openDropdown === item.label && (
+                    <div className="absolute top-full left-0 mt-0 bg-neutral-alt border border-neutral-border min-w-[240px] z-50">
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="block px-4 py-[9px] text-[13px] text-neutral-muted hover:text-neutral-ink hover:bg-neutral-page transition-colors no-underline"
                           onClick={() => setOpenDropdown(null)}
+                          className="block px-4 py-3 font-body font-medium text-[15px] text-neutral-link hover:text-neutral-ink hover:bg-neutral-page transition-colors no-underline border-b border-neutral-border last:border-b-0"
                         >
                           {sub.label}
                         </Link>
@@ -71,7 +79,7 @@ export function SiteHeader() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-neutral-muted font-medium text-[13.5px] hover:text-neutral-ink transition-colors no-underline whitespace-nowrap"
+                  className="font-body font-normal text-[16px] text-neutral-link no-underline hover:text-neutral-ink transition-colors whitespace-nowrap"
                 >
                   {item.label}
                 </Link>
@@ -79,33 +87,32 @@ export function SiteHeader() {
             )}
           </nav>
 
-          <div className="ml-auto flex items-center gap-3">
-            {/* Phone — large desktop only */}
+          {/* Right side */}
+          <div className="ml-auto flex items-center gap-4">
             <a
-              href="tel:0447847655"
-              className="hidden lg:block text-neutral-ink font-semibold text-[13.5px] hover:text-green-primary transition-colors no-underline whitespace-nowrap"
+              href={BUSINESS.phoneHref}
+              className="hidden lg:block font-body font-medium text-[16px] text-neutral-ink no-underline hover:text-neutral-muted transition-colors whitespace-nowrap"
             >
-              &#9742; 0447 847 655
+              {BUSINESS.phone}
             </a>
 
-            {/* CTA */}
             <Link
               href="/free-quote/"
-              className="bg-green-primary text-white font-semibold text-[13.5px] px-4 py-2.5 rounded-chip shadow-nav hover:-translate-y-px hover:bg-green-dark transition-all no-underline whitespace-nowrap"
+              className="hidden sm:inline-block bg-green-primary text-white font-body font-medium text-[16px] px-6 py-[10px] no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
             >
-              Get Free Quote
+              Get free quote
             </Link>
 
-            {/* Mobile hamburger */}
+            {/* Hamburger */}
             <button
-              className="md:hidden p-1 text-neutral-ink"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(v => !v)}
+              onClick={() => setMenuOpen((v) => !v)}
+              className="lg:hidden flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer"
             >
-              <span className="block w-5 h-[1.5px] bg-current mb-[5px]" />
-              <span className="block w-5 h-[1.5px] bg-current mb-[5px]" />
-              <span className="block w-5 h-[1.5px] bg-current" />
+              <span className="block w-6 h-[2px] bg-neutral-ink" />
+              <span className="block w-6 h-[2px] bg-neutral-ink" />
+              <span className="block w-6 h-[2px] bg-neutral-ink" />
             </button>
           </div>
         </div>

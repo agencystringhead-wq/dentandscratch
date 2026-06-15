@@ -1,5 +1,6 @@
 'use client'
-import { useState, useRef, useCallback } from 'react'
+import { useState, useRef } from 'react'
+import { Camera, Check } from 'lucide-react'
 import { QUOTE_FORM, BUSINESS } from '@/lib/content'
 
 type Step = 0 | 1 | 2
@@ -38,18 +39,18 @@ export function QuoteForm() {
   const fileRef               = useRef<HTMLInputElement>(null)
 
   const setField = (key: keyof Fields, val: string) =>
-    setFields(f => ({ ...f, [key]: val }))
+    setFields((f) => ({ ...f, [key]: val }))
 
   const clearError = (key: string) =>
-    setErrors(e => { const n = { ...e }; delete n[key]; return n })
+    setErrors((e) => { const n = { ...e }; delete n[key]; return n })
 
   const addPhotos = (files: FileList | null) => {
     if (!files) return
-    setPhotos(p => [...p, ...Array.from(files)].slice(0, 6))
+    setPhotos((p) => [...p, ...Array.from(files)].slice(0, 6))
   }
 
   const removePhoto = (i: number) =>
-    setPhotos(p => p.filter((_, idx) => idx !== i))
+    setPhotos((p) => p.filter((_, idx) => idx !== i))
 
   const goNext = () => {
     if (step === 0) {
@@ -57,18 +58,18 @@ export function QuoteForm() {
       if (Object.keys(errs).length) { setErrors(errs); return }
       setErrors({})
     }
-    if (step < 2) setStep(s => (s + 1) as Step)
+    if (step < 2) setStep((s) => (s + 1) as Step)
   }
 
   const goBack = () => {
-    if (step > 0) setStep(s => (s - 1) as Step)
+    if (step > 0) setStep((s) => (s - 1) as Step)
   }
 
   const submit = () => {
     const errs = validateDetails(fields)
     if (Object.keys(errs).length) { setErrors(errs); setStep(0); return }
 
-    const firstName = fields.name.trim().split(' ')[0]
+    const firstName  = fields.name.trim().split(' ')[0]
     const photoCount = photos.length
     const photoLabel = photoCount > 0
       ? `${photoCount} ${photoCount === 1 ? 'photo' : 'photos'}`
@@ -89,32 +90,35 @@ export function QuoteForm() {
   const primaryLabel = QUOTE_FORM.btnLabels[step]
 
   return (
-    <div className="bg-white border border-neutral-border rounded-card shadow-card overflow-hidden">
+    <div className="bg-white border-2 border-neutral-border overflow-hidden">
+
       {/* Header */}
-      <div className="px-7 pt-6 pb-5 border-b border-green-bg flex items-center gap-3">
-        <span className="w-11 h-11 rounded-badge bg-green-bg flex items-center justify-center text-[22px] shrink-0">
-          📷
+      <div className="px-7 pt-6 pb-5 border-b border-neutral-border flex items-center gap-3">
+        <span
+          className="w-11 h-11 flex items-center justify-center bg-green-primary shrink-0"
+          style={{ borderRadius: '5px' }}
+        >
+          <Camera size={22} color="white" />
         </span>
         <div>
-          <div className="font-display font-bold text-[19px] tracking-tight">{QUOTE_FORM.title}</div>
-          <div className="text-[13px] text-neutral-muted mt-0.5">{QUOTE_FORM.sub}</div>
+          <div className="font-body font-medium text-[18px] text-neutral-ink">{QUOTE_FORM.title}</div>
+          <div className="font-body font-medium text-[14px] text-neutral-muted mt-0.5">{QUOTE_FORM.sub}</div>
         </div>
       </div>
 
       {/* Success state */}
       {sent && (
         <div className="px-7 py-10 text-center">
-          <div
-            className="w-[74px] h-[74px] rounded-full mx-auto mb-[18px] flex items-center justify-center shadow-btn"
-            style={{ background: 'linear-gradient(150deg,#1FD75C,#009028)' }}
-          >
-            <span className="text-white text-[36px] leading-none">✓</span>
+          <div className="w-[64px] h-[64px] mx-auto mb-5 flex items-center justify-center bg-green-primary">
+            <Check size={32} color="white" strokeWidth={2.5} />
           </div>
-          <div className="font-display font-bold text-[23px] tracking-tight">{successName}</div>
-          <p className="text-[15px] text-neutral-muted leading-[1.55] max-w-[30em] mx-auto mt-3">{successMsg}</p>
+          <div className="font-body font-medium text-[22px] text-neutral-ink">{successName}</div>
+          <p className="font-body font-medium text-[15px] text-neutral-muted leading-relaxed max-w-[30em] mx-auto mt-3">
+            {successMsg}
+          </p>
           <button
             onClick={reset}
-            className="mt-[22px] bg-green-bg text-green-dark border-none font-semibold text-[14.5px] px-[22px] py-[12px] rounded-chip cursor-pointer"
+            className="mt-6 font-body font-medium text-[15px] text-neutral-ink px-6 py-3 border-2 border-neutral-border bg-transparent cursor-pointer hover:border-neutral-ink transition-colors"
           >
             Send another
           </button>
@@ -124,17 +128,18 @@ export function QuoteForm() {
       {/* Form body */}
       {!sent && (
         <div className="px-7 pt-6 pb-7">
+
           {/* Progress */}
-          <div className="flex items-center gap-2 mb-5">
+          <div className="flex items-center gap-2 mb-6">
             {QUOTE_FORM.steps.map((label, i) => (
-              <div key={label} className="flex-1 flex flex-col gap-[7px]">
+              <div key={label} className="flex-1 flex flex-col gap-[6px]">
                 <div
-                  className="h-[5px] rounded-chip transition-colors duration-300"
-                  style={{ background: i <= step ? '#009028' : '#DCE2DC' }}
+                  className="h-1 transition-colors duration-200"
+                  style={{ background: i <= step ? '#009028' : '#E7E5DC' }}
                 />
                 <span
-                  className="font-label text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors duration-300"
-                  style={{ color: i === step ? '#00601B' : i < step ? '#009028' : '#9A9797' }}
+                  className="font-body font-medium text-[11px] uppercase tracking-eyebrow transition-colors duration-200"
+                  style={{ color: i === step ? '#009028' : i < step ? '#646464' : '#AFAFAF' }}
                 >
                   {label}
                 </span>
@@ -144,14 +149,13 @@ export function QuoteForm() {
 
           {/* Step 0 — Details */}
           {step === 0 && (
-            <div className="flex flex-col gap-[14px]">
+            <div className="flex flex-col gap-4">
               <Field label="Your name" error={errors.name}>
                 <input
                   className={inputClass(!!errors.name)}
-                  id="fieldName"
                   placeholder="e.g. Sarah"
                   value={fields.name}
-                  onChange={e => { setField('name', e.target.value); clearError('name') }}
+                  onChange={(e) => { setField('name', e.target.value); clearError('name') }}
                 />
               </Field>
               <div className="flex gap-3 flex-wrap">
@@ -161,7 +165,7 @@ export function QuoteForm() {
                     placeholder="04XX XXX XXX"
                     inputMode="tel"
                     value={fields.phone}
-                    onChange={e => { setField('phone', e.target.value); clearError('phone') }}
+                    onChange={(e) => { setField('phone', e.target.value); clearError('phone') }}
                   />
                 </Field>
                 <Field label="Suburb" error={errors.suburb} className="flex-[1_1_140px]">
@@ -169,7 +173,7 @@ export function QuoteForm() {
                     className={inputClass(!!errors.suburb)}
                     placeholder="e.g. Berwick"
                     value={fields.suburb}
-                    onChange={e => { setField('suburb', e.target.value); clearError('suburb') }}
+                    onChange={(e) => { setField('suburb', e.target.value); clearError('suburb') }}
                   />
                 </Field>
               </div>
@@ -178,17 +182,17 @@ export function QuoteForm() {
 
           {/* Step 1 — Damage */}
           {step === 1 && (
-            <div className="flex flex-col gap-[14px]">
+            <div className="flex flex-col gap-4">
               <Field label="What needs fixing?">
                 <div className="flex flex-wrap gap-2 mt-1">
-                  {QUOTE_FORM.serviceChips.map(chip => (
+                  {QUOTE_FORM.serviceChips.map((chip) => (
                     <button
                       key={chip}
                       onClick={() => setField('service', chip)}
-                      className={`px-[15px] py-[9px] rounded-chip font-semibold text-[13px] border-[1.5px] cursor-pointer transition-all duration-150 ${
+                      className={`px-4 py-2.5 font-body font-medium text-[14px] border-2 cursor-pointer transition-colors ${
                         fields.service === chip
                           ? 'border-green-primary bg-green-bg text-green-dark'
-                          : 'border-neutral-border bg-white text-neutral-muted hover:shadow-[0_6px_14px_rgba(0,144,40,0.18)]'
+                          : 'border-neutral-border bg-white text-neutral-muted hover:border-neutral-ink'
                       }`}
                     >
                       {chip}
@@ -202,21 +206,24 @@ export function QuoteForm() {
                   className={inputClass(false)}
                   placeholder="e.g. 2019 Mazda CX-5"
                   value={fields.vehicle}
-                  onChange={e => setField('vehicle', e.target.value)}
+                  onChange={(e) => setField('vehicle', e.target.value)}
                 />
               </Field>
 
               <Field label="Photos of the damage">
                 <label
-                  className="flex items-center gap-[14px] border-[1.5px] border-dashed border-green-light bg-green-bg rounded-[16px] px-[18px] py-[16px] cursor-pointer transition-all hover:bg-[#ddf3e4] hover:border-green-primary"
+                  className="flex items-center gap-4 border-2 border-dashed border-neutral-border bg-neutral-alt px-5 py-4 cursor-pointer hover:border-green-primary hover:bg-green-bg transition-colors"
                   onClick={() => fileRef.current?.click()}
                 >
-                  <span className="w-[46px] h-[46px] rounded-[12px] bg-white flex items-center justify-center text-[22px] shrink-0">
-                    📎
+                  <span
+                    className="w-11 h-11 flex items-center justify-center bg-white shrink-0"
+                    style={{ borderRadius: '5px' }}
+                  >
+                    <Camera size={20} className="text-neutral-muted" />
                   </span>
                   <span className="flex flex-col gap-0.5">
-                    <span className="font-semibold text-[14px] text-green-dark">Tap to add photos</span>
-                    <span className="text-[12px] text-neutral-muted">A close-up of the damage and the full panel. JPG or PNG.</span>
+                    <span className="font-body font-medium text-[14px] text-neutral-ink">Tap to add photos</span>
+                    <span className="font-body font-medium text-[13px] text-neutral-muted">Close-up of the damage and the full panel. JPG or PNG.</span>
                   </span>
                   <input
                     ref={fileRef}
@@ -224,7 +231,7 @@ export function QuoteForm() {
                     accept="image/*"
                     multiple
                     className="hidden"
-                    onChange={e => addPhotos(e.target.files)}
+                    onChange={(e) => addPhotos(e.target.files)}
                   />
                 </label>
 
@@ -241,8 +248,8 @@ export function QuoteForm() {
 
           {/* Step 2 — Review */}
           {step === 2 && (
-            <div className="flex flex-col gap-[14px]">
-              <div className="bg-neutral-page rounded-[14px] px-[18px] py-[16px] flex flex-col gap-[9px]">
+            <div className="flex flex-col gap-4">
+              <div className="bg-neutral-alt border border-neutral-border px-5 py-4 flex flex-col gap-3">
                 {[
                   ['Name',   fields.name    || '—'],
                   ['Mobile', fields.phone   || '—'],
@@ -252,8 +259,8 @@ export function QuoteForm() {
                   ['Photos', String(photos.length)],
                 ].map(([key, val]) => (
                   <div key={key} className="flex justify-between gap-3">
-                    <span className="text-neutral-muted text-[13.5px]">{key}</span>
-                    <span className="font-semibold text-[13.5px] text-right">{val}</span>
+                    <span className="font-body font-medium text-[14px] text-neutral-muted">{key}</span>
+                    <span className="font-body font-medium text-[14px] text-neutral-ink text-right">{val}</span>
                   </div>
                 ))}
               </div>
@@ -263,34 +270,33 @@ export function QuoteForm() {
                   rows={2}
                   placeholder="When suits for a visit, gate codes, etc."
                   value={fields.message}
-                  onChange={e => setField('message', e.target.value)}
+                  onChange={(e) => setField('message', e.target.value)}
                 />
               </Field>
             </div>
           )}
 
           {/* Actions */}
-          <div className="flex gap-2.5 mt-5">
+          <div className="flex gap-2.5 mt-6">
             {step > 0 && (
               <button
                 onClick={goBack}
-                className="flex-none bg-white border-[1.5px] border-neutral-border text-neutral-muted font-semibold text-[15px] px-5 py-[14px] rounded-chip cursor-pointer hover:border-neutral-ink transition-colors"
+                className="flex-none font-body font-medium text-[15px] text-neutral-muted px-5 py-4 bg-white border-2 border-neutral-border cursor-pointer hover:border-neutral-ink transition-colors"
               >
                 Back
               </button>
             )}
             <button
               onClick={step < 2 ? goNext : submit}
-              className="flex-1 flex items-center justify-center gap-2 border-none text-white font-bold text-[15.5px] px-[22px] py-[15px] rounded-chip cursor-pointer shadow-[0_12px_26px_-10px_rgba(0,144,40,0.6)] hover:-translate-y-px hover:brightness-[1.06] hover:shadow-[0_16px_32px_-10px_rgba(0,144,40,0.7)] transition-all"
-              style={{ background: 'linear-gradient(135deg,#1FD75C,#009028 70%)' }}
+              className="flex-1 flex items-center justify-center gap-2 bg-green-primary text-white font-body font-medium text-[16px] px-6 py-4 border-2 border-green-primary cursor-pointer hover:bg-green-hover hover:border-green-hover transition-colors"
             >
-              {primaryLabel} <span>&#8594;</span>
+              {primaryLabel} →
             </button>
           </div>
 
-          <div className="flex items-center justify-center gap-[7px] mt-[14px] text-neutral-subtle text-[12px]">
-            <span>&#128274;</span> {QUOTE_FORM.privacy}
-          </div>
+          <p className="font-body font-medium text-[12px] text-neutral-light text-center mt-4">
+            {QUOTE_FORM.privacy}
+          </p>
         </div>
       )}
     </div>
@@ -310,15 +316,15 @@ function Field({
 }) {
   return (
     <div className={className}>
-      <label className="block text-[12.5px] font-semibold text-neutral-muted mb-1.5">{label}</label>
+      <label className="block font-body font-medium text-[13px] text-neutral-muted mb-1.5">{label}</label>
       {children}
-      {error && <p className="text-error text-[12px] mt-1">{error}</p>}
+      {error && <p className="font-body font-medium text-[12px] text-error mt-1">{error}</p>}
     </div>
   )
 }
 
 function inputClass(hasError: boolean) {
-  return `w-full px-[16px] py-[13px] rounded-input bg-white text-[15px] text-neutral-ink border-[1.5px] outline-none transition-all duration-150 focus:border-green-primary focus:shadow-[0_0_0_4px_rgba(0,144,40,0.10)] ${
+  return `w-full px-4 py-3 bg-white font-body font-medium text-[15px] text-neutral-ink border-2 outline-none transition-colors focus:border-green-primary ${
     hasError ? 'border-error' : 'border-neutral-border'
   }`
 }
@@ -326,12 +332,12 @@ function inputClass(hasError: boolean) {
 function PhotoThumb({ file, onRemove }: { file: File; onRemove: () => void }) {
   const url = URL.createObjectURL(file)
   return (
-    <div className="relative w-[76px] h-[76px] rounded-[12px] overflow-hidden border border-neutral-border bg-neutral-page shrink-0">
+    <div className="relative w-[76px] h-[76px] overflow-hidden border border-neutral-border bg-neutral-alt shrink-0">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={url} alt="" className="w-full h-full object-cover block" onLoad={() => URL.revokeObjectURL(url)} />
       <button
         onClick={onRemove}
-        className="absolute top-1 right-1 w-[22px] h-[22px] rounded-full border-none bg-neutral-ink/70 text-white text-[13px] flex items-center justify-center p-0 cursor-pointer leading-none"
+        className="absolute top-1 right-1 w-[22px] h-[22px] bg-neutral-ink/70 text-white text-[12px] flex items-center justify-center border-none p-0 cursor-pointer leading-none"
         aria-label="Remove photo"
       >
         ✕

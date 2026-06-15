@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { BUSINESS, FOOTER_NAV } from '@/lib/content'
 
 const SERVICE_LINKS = [
   { label: 'Paintless Dent Repair', href: '/paintless-dent-repair-pdr/' },
@@ -11,77 +12,91 @@ const SERVICE_LINKS = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-neutral-ink text-[#c7cdc7] px-5 pt-[clamp(40px,5vw,64px)] pb-8">
-      <div className="max-w-7xl mx-auto flex flex-wrap gap-8 justify-between">
+    <footer className="bg-neutral-ink" style={{ paddingTop: '60px', paddingBottom: '32px' }}>
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
 
-        {/* Brand */}
-        <div className="flex-1 basis-[280px] max-w-[360px]">
-          <div className="flex flex-col gap-3 items-start">
-            <Link href="/" className="no-underline">
+        <div className="flex flex-wrap gap-10 justify-between">
+
+          {/* Brand */}
+          <div className="flex-1 basis-[280px] max-w-[360px]">
+            <Link href="/" className="no-underline inline-block">
               <Image
                 src="/logo/logo/logo-white.webp"
                 width={500}
                 height={177}
-                className="h-12 w-auto"
+                className="h-10 w-auto"
                 alt="Dent and Scratch Direct"
               />
             </Link>
+            <p className="font-body font-medium text-[16px] text-neutral-muted leading-relaxed mt-5">
+              Mobile dent and scratch repair across South East Melbourne. We come to you — factory finish, fraction of the price.
+            </p>
           </div>
-          <p className="text-[14px] leading-relaxed mt-4 text-[#9aa39a]">
-            Mobile dent and scratch repair across South East Melbourne. We come to you, factory finish, fraction of the price.
-          </p>
+
+          {/* Services */}
+          <div>
+            <p className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted mb-4">
+              Services
+            </p>
+            <ul className="flex flex-col gap-3 list-none p-0 m-0">
+              {SERVICE_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    href={href}
+                    className="font-body font-medium text-[16px] text-neutral-light hover:text-white transition-colors no-underline"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted mb-4">
+              Get in touch
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                href={BUSINESS.phoneHref}
+                className="font-body font-medium text-[16px] text-white no-underline hover:text-neutral-light transition-colors"
+              >
+                {BUSINESS.phone}
+              </a>
+              <span className="font-body font-medium text-[16px] text-neutral-muted">{BUSINESS.email}</span>
+              <span className="font-body font-medium text-[16px] text-neutral-muted">
+                {BUSINESS.suburb}, {BUSINESS.state} · South East Melbourne
+              </span>
+              <Link
+                href="/free-quote/"
+                className="mt-2 self-start font-body font-medium text-[16px] bg-green-primary text-white px-6 py-3 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors"
+              >
+                Free Quote
+              </Link>
+            </div>
+          </div>
+
         </div>
 
-        {/* Services */}
-        <div>
-          <p className="font-label font-semibold text-[12px] uppercase tracking-[0.14em] text-[#6f786f]">
-            Services
-          </p>
-          <ul className="flex flex-col gap-2.5 mt-3.5 list-none p-0">
-            {SERVICE_LINKS.map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className="text-[#c7cdc7] text-[14px] hover:text-white transition-colors no-underline"
-                >
-                  {label}
-                </Link>
-              </li>
+        {/* Legal row */}
+        <div className="mt-10 pt-6 border-t border-[#333333] flex flex-wrap gap-4 justify-between items-center">
+          <span className="font-body font-medium text-[14px] text-neutral-muted">
+            &copy; 2026 Dent and Scratch Direct. All rights reserved.
+          </span>
+          <div className="flex flex-wrap gap-6">
+            {FOOTER_NAV.legal.map(({ label, href }) => (
+              <Link
+                key={href}
+                href={href}
+                className="font-body font-medium text-[14px] text-neutral-muted hover:text-neutral-light transition-colors no-underline"
+              >
+                {label}
+              </Link>
             ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <p className="font-label font-semibold text-[12px] uppercase tracking-[0.14em] text-[#6f786f]">
-            Get in touch
-          </p>
-          <div className="flex flex-col gap-2.5 mt-3.5">
-            <a
-              href="tel:0447847655"
-              className="text-white font-bold text-[16px] no-underline hover:text-green-light transition-colors"
-            >
-              0447 847 655
-            </a>
-            <span className="text-[14px] text-[#9aa39a]">admin@dentandscratch.com.au</span>
-            <span className="text-[14px] text-[#9aa39a]">Berwick, VIC &middot; South East Melbourne</span>
-            <a
-              href="/#quote"
-              className="mt-1.5 self-start bg-green-primary text-white font-semibold text-[14px] px-5 py-2.5 rounded-chip no-underline hover:bg-green-dark transition-colors"
-            >
-              Free Quote
-            </a>
           </div>
         </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto mt-8 pt-5 border-t border-[#1f261f] flex flex-wrap gap-2.5 justify-between text-[12.5px] text-[#6f786f]">
-        <span>&copy; 2026 Dent and Scratch Direct. All rights reserved.</span>
-        <div className="flex flex-wrap gap-x-5 gap-y-1">
-          <Link href="/privacy-policy/"  className="hover:text-[#9aa39a] transition-colors no-underline">Privacy Policy</Link>
-          <Link href="/terms-conditions/" className="hover:text-[#9aa39a] transition-colors no-underline">Terms &amp; Conditions</Link>
-          <Link href="/site-map/"        className="hover:text-[#9aa39a] transition-colors no-underline">Sitemap</Link>
-        </div>
       </div>
     </footer>
   )

@@ -1,57 +1,43 @@
+import Link from 'next/link'
 import { CTA_SECTION, BUSINESS } from '@/lib/content'
 
 export function CtaSection() {
   const { heading, body } = CTA_SECTION
 
   return (
-    <section className="px-[22px] py-[22px]">
-      <div
-        className="max-w-[1200px] mx-auto relative rounded-[34px] overflow-hidden text-white text-center"
-        style={{
-          background: 'linear-gradient(135deg,#00601B,#009028 60%,#1FD75C 130%)',
-          padding: 'clamp(40px,6vw,80px) clamp(24px,4vw,64px)',
-        }}
-      >
-        {/* Glow orb */}
-        <div
-          className="absolute -bottom-[120px] -left-[60px] w-[420px] h-[420px] rounded-full pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle,rgba(255,255,255,0.18),transparent 65%)',
-            filter: 'blur(10px)',
-          }}
-          aria-hidden="true"
-        />
+    <section className="bg-green-primary" style={{ padding: '80px 0' }}>
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10 text-center">
 
-        <div className="relative">
-          <h2
-            className="font-display font-extrabold tracking-[-0.025em] leading-[1.05] m-0 mx-auto max-w-[16em]"
-            style={{ fontSize: 'clamp(28px,4.6vw,52px)' }}
+        <h2
+          className="font-display font-bold text-white m-0 mx-auto max-w-[18em]"
+          style={{ fontSize: 'clamp(28px,4vw,44px)', lineHeight: '1.2' }}
+        >
+          {heading}
+        </h2>
+
+        <p
+          className="font-body font-medium text-[16px] leading-relaxed mt-5 mx-auto max-w-[32em]"
+          style={{ color: 'rgba(255,255,255,0.8)' }}
+        >
+          {body}
+        </p>
+
+        <div className="flex flex-wrap gap-4 justify-center mt-10">
+          <Link
+            href="/free-quote/"
+            className="inline-block bg-white text-green-primary font-body font-medium text-[16px] px-8 py-4 no-underline border-2 border-white hover:bg-neutral-page transition-colors"
           >
-            {heading}
-          </h2>
-
-          <p
-            className="text-green-muted leading-[1.55] mt-4 mx-auto max-w-[30em]"
-            style={{ fontSize: 'clamp(15.5px,1.5vw,18px)' }}
+            Get my free quote
+          </Link>
+          <a
+            href={BUSINESS.phoneHref}
+            className="inline-block bg-transparent text-white font-body font-medium text-[16px] px-8 py-4 no-underline border-2 hover:bg-white/10 transition-colors"
+            style={{ borderColor: 'rgba(255,255,255,0.5)' }}
           >
-            {body}
-          </p>
-
-          <div className="flex flex-wrap gap-[14px] justify-center mt-[30px]">
-            <a
-              href="/#quote"
-              className="no-underline bg-white text-green-dark font-bold text-[16px] px-[32px] py-[16px] rounded-chip shadow-[0_14px_30px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 hover:shadow-[0_20px_38px_-12px_rgba(0,0,0,0.5)] transition-all"
-            >
-              Get my free quote
-            </a>
-            <a
-              href={BUSINESS.phoneHref}
-              className="no-underline inline-flex items-center gap-[9px] bg-white/[0.14] border-[1.5px] border-white/[0.4] text-white font-semibold text-[16px] px-[30px] py-[16px] rounded-chip hover:bg-white/[0.24] hover:border-white/[0.7] transition-all"
-            >
-              <span>&#9742;</span> {BUSINESS.phone}
-            </a>
-          </div>
+            {BUSINESS.phone}
+          </a>
         </div>
+
       </div>
     </section>
   )

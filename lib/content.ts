@@ -211,6 +211,38 @@ export const QUOTE_FORM = {
   serviceChips: ['PDR', 'Bumper', 'Paint', 'Hail'] as const,
 } as const
 
+export const FEATURES = [
+  { icon: 'MapPin',        title: 'We come to you',    body: 'Home, work, car park — anywhere in South East Melbourne. No workshop, no drop-off.' },
+  { icon: 'Shield',        title: 'Factory paint kept', body: 'PDR works the metal back from behind the panel. No filler, no respray, original finish.' },
+  { icon: 'ShieldCheck',   title: 'Fully insured',      body: 'All work is fully insured and backed by Diarmuid personally.' },
+  { icon: 'Clock',         title: 'Fast turnaround',    body: 'Most repairs done in a couple of hours. Same day in most cases.' },
+] as const
+
+export const WHY_US_POINTS = [
+  { icon: 'Wrench',          label: '30 years on the tools' },
+  { icon: 'Car',             label: '100% mobile service' },
+  { icon: 'Paintbrush',      label: 'Factory paint kept' },
+  { icon: 'MessageCircle',   label: 'Free quote, reply in 1 hour' },
+  { icon: 'ShieldCheck',     label: 'Fully insured' },
+  { icon: 'Star',            label: '4.9 Google rating' },
+] as const
+
+export const WHY_SECTION = {
+  eyebrow: 'Why drivers choose us',
+  heading: 'Factory finish, at your door.',
+} as const
+
+export const PROCESS_SECTION = {
+  eyebrow: 'How it works',
+  heading: 'Three steps, done in a couple of hours.',
+} as const
+
+export const GALLERY_SECTION = {
+  eyebrow: 'Real repairs',
+  heading: 'Before and after',
+  sub:     "Every repair done on the customer's driveway.",
+} as const
+
 export const PDR_PAGE = {
   title:       'Paintless Dent Repair | Dent & Scratch Direct',
   description: 'Paintless Dent Repair (PDR) in South East Melbourne. No filler, no respray — factory paint kept. Diarmuid comes to you. Free quotes, same day.',

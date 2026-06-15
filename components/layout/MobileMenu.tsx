@@ -1,7 +1,8 @@
 'use client'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { type NavItem } from '@/lib/content'
+import { ChevronDown, X } from 'lucide-react'
+import { type NavItem, BUSINESS } from '@/lib/content'
 
 interface Props {
   open: boolean
@@ -24,44 +25,47 @@ export function MobileMenu({ open, links, onClose }: Props) {
   return (
     <div
       aria-hidden={!open}
-      className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-sm flex flex-col pt-20 px-6 md:hidden transition-opacity duration-200 overflow-y-auto ${
+      className={`fixed inset-0 z-[100] flex flex-col bg-neutral-page lg:hidden transition-opacity duration-150 ${
         open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}
     >
-      <nav className="flex flex-col mt-4" aria-label="Mobile navigation">
+      {/* Header */}
+      <div className="flex items-center justify-between px-5 h-[72px] border-b border-neutral-border shrink-0">
+        <span className="font-body font-medium text-[16px] text-neutral-ink">Menu</span>
+        <button
+          onClick={onClose}
+          aria-label="Close menu"
+          className="p-2 bg-transparent border-none cursor-pointer text-neutral-ink"
+        >
+          <X size={24} />
+        </button>
+      </div>
+
+      {/* Nav links */}
+      <nav className="flex-1 overflow-y-auto" aria-label="Mobile navigation">
         {links.map((item) =>
           item.dropdown ? (
-            <div key={item.href}>
-              <div className="flex items-center justify-between border-b border-neutral-border">
-                <Link
-                  href={item.href}
-                  className="text-neutral-ink font-display font-bold text-2xl hover:text-green-primary transition-colors no-underline py-3"
-                  onClick={onClose}
-                >
-                  {item.label}
-                </Link>
-                <button
-                  className="p-3 text-neutral-muted"
-                  aria-label={`${openSection === item.href ? 'Collapse' : 'Expand'} ${item.label}`}
-                  onClick={() => setOpenSection(s => s === item.href ? null : item.href)}
-                >
-                  <svg
-                    width="14" height="8" viewBox="0 0 14 8" fill="none"
-                    className={`transition-transform duration-150 ${openSection === item.href ? 'rotate-180' : ''}`}
-                    aria-hidden="true"
-                  >
-                    <path d="M1 1l6 6 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
-              {openSection === item.href && (
-                <div className="pl-4 py-2 flex flex-col gap-0.5 border-l-2 border-green-primary/30 ml-2 mb-2">
+            <div key={item.href} className="border-b border-neutral-border">
+              <button
+                onClick={() => setOpenSection((s) => (s === item.label ? null : item.label))}
+                aria-expanded={openSection === item.label}
+                className="w-full flex items-center justify-between px-5 py-4 bg-transparent border-none cursor-pointer"
+              >
+                <span className="font-body font-medium text-[16px] text-neutral-ink">{item.label}</span>
+                <ChevronDown
+                  size={16}
+                  className={`text-neutral-muted transition-transform duration-150 ${openSection === item.label ? 'rotate-180' : ''}`}
+                />
+              </button>
+
+              {openSection === item.label && (
+                <div className="border-t border-neutral-border bg-neutral-alt">
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.href}
                       href={sub.href}
-                      className="text-neutral-muted font-medium text-[15px] hover:text-green-primary transition-colors no-underline py-1.5"
                       onClick={onClose}
+                      className="block px-8 py-3 font-body font-medium text-[15px] text-neutral-link hover:text-neutral-ink hover:bg-neutral-page transition-colors no-underline border-b border-neutral-border last:border-b-0"
                     >
                       {sub.label}
                     </Link>
@@ -73,8 +77,8 @@ export function MobileMenu({ open, links, onClose }: Props) {
             <Link
               key={item.href}
               href={item.href}
-              className="text-neutral-ink font-display font-bold text-2xl hover:text-green-primary transition-colors no-underline py-3 border-b border-neutral-border"
               onClick={onClose}
+              className="flex items-center px-5 py-4 font-body font-medium text-[16px] text-neutral-ink no-underline hover:bg-neutral-alt transition-colors border-b border-neutral-border"
             >
               {item.label}
             </Link>
@@ -82,21 +86,22 @@ export function MobileMenu({ open, links, onClose }: Props) {
         )}
       </nav>
 
-      <div className="mt-8 pb-10 flex flex-col gap-4">
-        <a
-          href="tel:0447847655"
-          className="text-green-primary font-bold text-xl"
-          onClick={onClose}
-        >
-          0447 847 655
-        </a>
+      {/* Footer CTAs */}
+      <div className="shrink-0 p-5 border-t border-neutral-border flex flex-col gap-3">
         <Link
           href="/free-quote/"
-          className="self-start bg-green-primary text-white font-semibold text-base px-6 py-3 rounded-chip shadow-btn no-underline"
           onClick={onClose}
+          className="block text-center bg-green-primary text-white font-body font-medium text-[16px] py-4 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors"
         >
-          Get a Free Quote
+          Get my free quote
         </Link>
+        <a
+          href={BUSINESS.phoneHref}
+          onClick={onClose}
+          className="block text-center bg-transparent text-neutral-ink font-body font-medium text-[16px] py-4 no-underline border-2 border-neutral-ink"
+        >
+          {BUSINESS.phone}
+        </a>
       </div>
     </div>
   )

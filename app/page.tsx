@@ -1,24 +1,28 @@
-import { HeroSection }        from '@/components/sections/HeroSection'
-import { StatsBar }           from '@/components/sections/StatsBar'
-import { PdrSection }         from '@/components/sections/PdrSection'
-import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection'
-import { ServicesGrid }       from '@/components/sections/ServicesGrid'
-import { AboutSection }       from '@/components/sections/AboutSection'
-import { ReviewsSection }     from '@/components/sections/ReviewsSection'
-import { ServiceAreaSection } from '@/components/sections/ServiceAreaSection'
-import { CtaSection }         from '@/components/sections/CtaSection'
+import { HeroSection }         from '@/components/sections/HeroSection'
+import { QuotePanelSection }   from '@/components/sections/QuotePanelSection'
+import { StatsBar }            from '@/components/sections/StatsBar'
+import { ServicesGrid }        from '@/components/sections/ServicesGrid'
+import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
+import { WhyUsSection }        from '@/components/sections/WhyUsSection'
+import { AboutSection }        from '@/components/sections/AboutSection'
+import { ProcessSection }      from '@/components/sections/ProcessSection'
+import { ReviewsSection }      from '@/components/sections/ReviewsSection'
+import { GallerySection }      from '@/components/sections/GallerySection'
+import { CtaSection }          from '@/components/sections/CtaSection'
 
 export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <QuotePanelSection />
       <StatsBar />
-      <PdrSection />
-      <BeforeAfterSection />
       <ServicesGrid />
+      <FeatureCardsSection />
+      <WhyUsSection />
       <AboutSection />
+      <ProcessSection />
       <ReviewsSection />
-      <ServiceAreaSection />
+      <GallerySection />
       <CtaSection />
     </main>
   )

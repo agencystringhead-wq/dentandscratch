@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Inter, Saira_Condensed } from 'next/font/google'
+import { Bricolage_Grotesque, Inter_Tight } from 'next/font/google'
 import '@/styles/globals.css'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
@@ -8,21 +8,15 @@ import { getLocalBusinessSchema } from '@/lib/schema'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+  weight: ['400', '700', '800'],
   variable: '--font-bricolage',
   display: 'swap',
 })
 
-const inter = Inter({
+const interTight = Inter_Tight({
   subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const saira = Saira_Condensed({
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  variable: '--font-saira',
+  weight: ['400', '500'],
+  variable: '--font-inter-tight',
   display: 'swap',
 })
 
@@ -57,7 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-AU"
-      className={`${bricolage.variable} ${inter.variable} ${saira.variable}`}
+      className={`${bricolage.variable} ${interTight.variable}`}
     >
       <head>
         <script

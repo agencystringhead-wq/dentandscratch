@@ -11,6 +11,7 @@
 
   body {
     @apply bg-neutral-page text-neutral-ink font-body overflow-x-hidden;
+    font-weight: 500;
   }
 
   input,
@@ -21,16 +22,10 @@
   }
 
   ::placeholder {
-    @apply text-neutral-subtle;
+    color: #AFAFAF;
   }
 
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-green-primary;
-  }
-}
-
-@layer utilities {
-  .font-eyebrow {
-    @apply font-label font-semibold text-[13px] tracking-eyebrow uppercase;
   }
 }

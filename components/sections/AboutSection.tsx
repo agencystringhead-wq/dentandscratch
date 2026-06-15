@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ABOUT } from '@/lib/content'
 
 export function AboutSection() {
@@ -6,82 +7,89 @@ export function AboutSection() {
   return (
     <section
       id="owner"
-      className="scroll-mt-[84px] bg-green-bg"
-      style={{ padding: 'clamp(48px,7vw,96px) 22px' }}
+      className="scroll-mt-[72px] bg-neutral-page border-t border-neutral-border"
+      style={{ padding: '80px 0' }}
     >
-      <div
-        className="max-w-[1100px] mx-auto flex flex-wrap items-center"
-        style={{ gap: 'clamp(28px,4vw,56px)' }}
-      >
-        {/* Photo */}
-        <div
-          className="flex-[0_1_400px] min-w-[280px] w-full relative rounded-[26px] overflow-hidden bg-neutral-ink"
-          style={{
-            aspectRatio: '4 / 5',
-            boxShadow: '0 30px 60px -30px rgba(0,96,27,0.55)',
-          }}
-        >
-          {/* PLACEHOLDER — swap for real photo before go-live */}
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
+        <div className="flex flex-wrap items-start gap-10 lg:gap-16">
+
+          {/* Photo */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-2.5 text-white/55 font-mono text-[12px] tracking-[0.08em] text-center p-5"
-            style={{
-              background: 'repeating-linear-gradient(135deg,#0e3b1e,#0e3b1e 16px,#0d3319 16px,#0d3319 32px)',
-            }}
+            className="flex-[0_1_400px] min-w-[280px] w-full relative bg-neutral-charcoal border border-neutral-border overflow-hidden"
+            style={{ aspectRatio: '4/5' }}
           >
-            <span className="text-[30px]">📷</span>
-            <div>photo: Diarmuid on the job</div>
-          </div>
-
-          {/* Nameplate overlay */}
-          <div className="absolute left-4 bottom-4 right-4 bg-white/[0.95] backdrop-blur-[6px] rounded-[16px] p-[14px_16px] flex items-center gap-3">
-            <div
-              className="w-11 h-11 rounded-[12px] flex items-center justify-center font-display font-extrabold text-[18px] text-white shrink-0"
-              style={{ background: 'linear-gradient(150deg,#1FD75C,#009028)' }}
-            >
-              {nameplate.initials}
+            {/* PLACEHOLDER — swap for real photo before go-live */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-light">
+                Photo: Diarmuid on the job
+              </span>
             </div>
-            <div>
-              <div className="font-bold text-[15px]">{nameplate.name}</div>
-              <div className="text-[12.5px] text-neutral-muted">{nameplate.title}</div>
-            </div>
-          </div>
-        </div>
 
-        {/* Text */}
-        <div className="flex-[1_1_380px] min-w-[300px]">
-          <span className="font-label font-semibold text-[13px] tracking-[0.2em] uppercase text-green-primary">
-            {eyebrow}
-          </span>
-
-          <h2
-            className="font-display font-extrabold tracking-[-0.025em] leading-[1.06] mt-3"
-            style={{ fontSize: 'clamp(28px,4vw,46px)' }}
-          >
-            {heading}
-          </h2>
-
-          {paras.map((p, i) => (
-            <p
-              key={i}
-              className="leading-[1.65] text-[#2c3a2f] mt-[18px]"
-              style={{ fontSize: 'clamp(15.5px,1.4vw,17.5px)' }}
-            >
-              {p}
-            </p>
-          ))}
-
-          <div className="flex flex-wrap gap-[22px] mt-[24px]">
-            {stats.map(({ value, label }) => (
-              <div key={value}>
-                <div className="font-display font-extrabold text-[32px] text-green-primary">{value}</div>
-                <div className="text-[13px] text-neutral-muted">{label}</div>
+            {/* Nameplate overlay */}
+            <div className="absolute bottom-0 left-0 right-0 bg-white border-t border-neutral-border p-4 flex items-center gap-3">
+              <span
+                className="w-10 h-10 flex items-center justify-center bg-green-primary font-body font-medium text-white text-[14px] shrink-0"
+                style={{ borderRadius: '5px' }}
+              >
+                {nameplate.initials}
+              </span>
+              <div>
+                <div className="font-body font-medium text-[15px] text-neutral-ink">{nameplate.name}</div>
+                <div className="font-body font-medium text-[13px] text-neutral-muted">{nameplate.title}</div>
               </div>
-            ))}
+            </div>
           </div>
 
-          <div className="mt-[26px] font-display text-[26px] text-green-dark italic font-semibold">
-            {signature}
+          {/* Text */}
+          <div className="flex-[1_1_360px] min-w-[280px]">
+            <span className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-muted">
+              {eyebrow}
+            </span>
+            <h2
+              className="font-display font-bold text-neutral-ink mt-3"
+              style={{ fontSize: 'clamp(28px,3.5vw,44px)', lineHeight: '1.2' }}
+            >
+              {heading}
+            </h2>
+
+            {paras.map((p, i) => (
+              <p
+                key={i}
+                className="font-body font-medium text-[16px] text-neutral-muted leading-relaxed mt-4"
+              >
+                {p}
+              </p>
+            ))}
+
+            <div className="flex flex-wrap gap-8 mt-8 pt-8 border-t border-neutral-border">
+              {stats.map(({ value, label }) => (
+                <div key={value}>
+                  <div
+                    className="font-body font-medium text-neutral-ink"
+                    style={{ fontSize: '30px', lineHeight: '36px' }}
+                  >
+                    {value}
+                  </div>
+                  <div className="font-body font-medium text-[16px] text-neutral-muted mt-1">{label}</div>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="font-display font-bold text-neutral-ink mt-6"
+              style={{ fontSize: '26px' }}
+            >
+              {signature}
+            </div>
+
+            <Link
+              href="/about-us/"
+              className="inline-block mt-6 font-body font-medium text-[16px] text-neutral-ink no-underline border-b-2 border-neutral-ink pb-0.5 hover:border-green-primary hover:text-green-primary transition-colors"
+            >
+              More about Diarmuid →
+            </Link>
           </div>
+
         </div>
       </div>
     </section>
