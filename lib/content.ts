@@ -67,8 +67,8 @@ export const SERVICES_NAV = SERVICES.map((s) => ({
 }))
 
 export const SERVICES_SECTION = {
-  heading: 'From car park dings to kerbed alloys, we sort it',
-  sub:     'Paint, panels, bumpers, rust and alloys — sorted at your home or workplace.',
+  heading: 'Paintless dent repair, bumper repair, and the lot in between',
+  sub:     "All done where your car's parked, from Berwick to Frankston.",
   cta:     { label: 'View All Services', href: '/services/' },
 }
 
