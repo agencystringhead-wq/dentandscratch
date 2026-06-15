@@ -47,9 +47,9 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-x-6 gap-y-5 mt-9">
               <Link
                 href="#quote"
-                className="inline-block rounded-[10px] bg-neutral-ink text-white font-body font-medium text-[16px] px-8 py-4 no-underline hover:opacity-90 transition-opacity"
+                className="cta-fill inline-block rounded-[5px] bg-neutral-ink text-white font-body font-medium text-[16px] px-8 py-4 no-underline"
               >
-                Get free quote
+                <span className="relative z-10">Get free quote</span>
               </Link>
 
               <div className="flex items-center gap-3">

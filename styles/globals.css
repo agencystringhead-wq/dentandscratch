@@ -54,6 +54,30 @@
   }
 }
 
+/* Hero black CTA — brand green fills from the bottom up on hover.
+   Under prefers-reduced-motion the fill applies instantly (no transition). */
+.cta-fill {
+  position: relative;
+  overflow: hidden;
+}
+.cta-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #009028;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  z-index: 0;
+}
+.cta-fill:hover::before {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cta-fill::before {
+    transition: transform 0.35s ease;
+  }
+}
+
 @keyframes mega-in {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
