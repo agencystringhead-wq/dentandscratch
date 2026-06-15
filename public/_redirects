@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects
+# Add permanent (301) or temporary (302) redirects here.
+# Format: /old-path  /new-path  301

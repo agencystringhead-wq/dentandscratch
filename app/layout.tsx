@@ -4,6 +4,7 @@ import '@/styles/globals.css'
 import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SmoothScrollProvider } from '@/components/ui/SmoothScrollProvider'
+import { getLocalBusinessSchema } from '@/lib/schema'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -42,6 +43,12 @@ export default function RootLayout({
       lang="en-AU"
       className={`${bricolage.variable} ${inter.variable} ${saira.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
+        />
+      </head>
       <body>
         <SmoothScrollProvider>
           <SiteHeader />
