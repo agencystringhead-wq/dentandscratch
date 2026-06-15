@@ -2,14 +2,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { MobileMenu } from './MobileMenu'
-
-const NAV_LINKS = [
-  { label: 'PDR',      href: '/#pdr' },
-  { label: 'Our Work', href: '/#work' },
-  { label: 'Services', href: '/#services' },
-  { label: 'About',    href: '/#owner' },
-  { label: 'Reviews',  href: '/#reviews' },
-]
+import { NAV_LINKS } from '@/lib/content'
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)

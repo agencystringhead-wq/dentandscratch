@@ -3,13 +3,13 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 
 interface NavLink {
-  label: string
-  href: string
+  readonly label: string
+  readonly href: string
 }
 
 interface Props {
   open: boolean
-  links: NavLink[]
+  links: readonly NavLink[]
   onClose: () => void
 }
 
