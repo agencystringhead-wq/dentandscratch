@@ -3,8 +3,8 @@ import { AfterBannerSection }  from '@/components/sections/AfterBannerSection'
 import { WorkSection }         from '@/components/sections/WorkSection'
 import { ServicesSection }     from '@/components/sections/ServicesSection'
 import { WhyChooseSection }    from '@/components/sections/WhyChooseSection'
+import { MeetOwnerSection }    from '@/components/sections/MeetOwnerSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
-import { AboutSection }        from '@/components/sections/AboutSection'
 import { ProcessSection }      from '@/components/sections/ProcessSection'
 import { ReviewsSection }      from '@/components/sections/ReviewsSection'
 import { GallerySection }      from '@/components/sections/GallerySection'
@@ -18,8 +18,8 @@ export default function HomePage() {
       <WorkSection />
       <ServicesSection />
       <WhyChooseSection />
+      <MeetOwnerSection />
       <WhyUsSection />
-      <AboutSection />
       <ProcessSection />
       <ReviewsSection />
       <GallerySection />

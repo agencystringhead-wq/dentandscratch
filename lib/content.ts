@@ -88,6 +88,21 @@ export const WHY_CHOOSE = {
   ],
 } as const
 
+// Single-person "Meet the owner" feature.
+export const MEET_OWNER = {
+  eyebrow: 'Meet the owner',
+  heading: "G'day, I'm Diarmuid",
+  image:   '/images/diarmuid-portrait.webp',
+  alt:     'Diarmuid Murphy, owner of Dent and Scratch Direct',
+  paras: [
+    'He started Dent & Scratch to take the hassle out of fixing a car. Panel shops keep it for days and charge a fortune; he comes to you and sorts most jobs in a couple of hours for a fraction of the price.',
+    'No call centres, no runaround. Text a photo, get a price back. 30 years on the tools, every job done personally.',
+  ],
+  stats: ['30+ years on the tools', '100% mobile service', 'Replies within the hour'],
+  name:  'Diarmuid Murphy — Owner & operator',
+  cta:   { label: 'Get your free quote', href: '/free-quote/' },
+} as const
+
 export const SERVICE_AREAS_NAV = [
   { label: 'Berwick & South-East Corridor',   href: '/service-areas/south-east-melbourne/' },
   { label: 'Greater Dandenong & Monash',       href: '/service-areas/dandenong-monash/' },
