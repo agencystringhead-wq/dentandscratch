@@ -109,10 +109,32 @@ export const TOP_BAR = {
 } as const
 
 export const HERO = {
-  heading:    'Dents and scratches gone,',
-  accentLine: 'right in your driveway.',
-  para:       "We're Dent and Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
-  checks:     ['We come to you', 'Same day quotes', 'Fully insured'],
+  heading:     'Dents and scratches gone,',
+  accentLine:  'right in your driveway.',
+  para:        "We're Dent and Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
+  checks:      ['We come to you', 'Same day quotes', 'Fully insured'],
+  socialProof: '4.9 · hundreds of happy drivers',
+  bandImage:   '/images/hero-band.webp',
+  bandAlt:     "Mobile dent repair at a customer's driveway",
+} as const
+
+// Hero quote form (green-gradient panel). Single-sourced copy; AU fields.
+export const HERO_FORM = {
+  heading: 'Snap it, send it, get a quote',
+  sub:     'Fast, on-the-spot dent and scratch repairs at your home or workplace, finished in a couple of hours.',
+  fields: [
+    { key: 'name',     placeholder: 'Name',                                  required: true,  type: 'text',  inputMode: 'text'  },
+    { key: 'phone',    placeholder: 'Phone',                                 required: true,  type: 'tel',   inputMode: 'tel'   },
+    { key: 'email',    placeholder: 'Email',                                 required: true,  type: 'email', inputMode: 'email' },
+    { key: 'vehicle',  placeholder: 'Make & model (e.g. Toyota Corolla 2019)', required: false, type: 'text',  inputMode: 'text'  },
+    { key: 'address',  placeholder: 'Suburb / address',                      required: false, type: 'text',  inputMode: 'text'  },
+    { key: 'postcode', placeholder: 'Postcode',                              required: true,  type: 'text',  inputMode: 'numeric' },
+  ],
+  messagePlaceholder: 'Message (describe the damage, optional)',
+  uploadText:         'Drop photos of the damage here, or click to browse',
+  uploadNote:         'Send one close-up of the damage and one of the whole panel, for each repair.',
+  submitLabel:        'YES, SEND MY PRICE',
+  replyNote:          'We usually reply within a few hours.',
 } as const
 
 export const TRUST_STATS = [

@@ -1,23 +1,29 @@
-import Link from 'next/link'
-import { Check } from 'lucide-react'
-import { HERO, BUSINESS } from '@/lib/content'
+import Image from 'next/image'
+import { Check, Star } from 'lucide-react'
+import { HERO } from '@/lib/content'
 import { QuoteButton } from '@/components/ui/QuoteButton'
+import { HeroQuoteForm } from '@/components/ui/HeroQuoteForm'
+import { AnimateIn } from '@/components/ui/AnimateIn'
 
 export function HeroSection() {
   return (
-    <section className="bg-neutral-page" style={{ padding: '80px 0 0' }}>
-      <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
-        <div className="flex flex-wrap items-start gap-10 lg:gap-16">
+    <section className="bg-neutral-page">
 
-          {/* Left — headline + checks + CTAs */}
-          <div className="flex-[1_1_420px] min-w-[300px] pb-10 lg:pb-20 pt-2">
+      {/* Top row — text left, quote form right */}
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10" style={{ paddingTop: '64px', paddingBottom: '56px' }}>
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+          {/* Left — headline + social proof + ticks */}
+          <div className="pt-2">
             <h1
               className="font-display font-bold text-neutral-ink m-0 tracking-tight"
               style={{ fontSize: 'clamp(36px,5vw,60px)', lineHeight: '1.1' }}
             >
               {HERO.heading}
               <br />
-              <span className="text-green-primary">{HERO.accentLine}</span>
+              <span className="text-green-primary underline decoration-green-primary decoration-[3px] underline-offset-[6px]">
+                {HERO.accentLine}
+              </span>
             </h1>
 
             <p
@@ -27,9 +33,25 @@ export function HeroSection() {
               {HERO.para}
             </p>
 
-            <div className="flex flex-col gap-3 mt-8">
+            {/* CTA + social proof */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mt-9">
+              <QuoteButton />
+              <div className="flex flex-col gap-1">
+                <span className="flex items-center gap-0.5" aria-hidden="true">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} size={15} fill="#FAB700" stroke="#FAB700" />
+                  ))}
+                </span>
+                <span className="font-body font-medium text-[14px] text-neutral-muted">
+                  {HERO.socialProof}
+                </span>
+              </div>
+            </div>
+
+            {/* Ticks */}
+            <div className="flex flex-wrap gap-x-6 gap-y-3 mt-8">
               {HERO.checks.map((check) => (
-                <span key={check} className="flex items-center gap-3 font-body font-medium text-[16px] text-neutral-ink">
+                <span key={check} className="flex items-center gap-2.5 font-body font-medium text-[15px] text-neutral-ink">
                   <span
                     className="w-5 h-5 flex items-center justify-center bg-green-primary shrink-0"
                     style={{ borderRadius: '5px' }}
@@ -40,49 +62,30 @@ export function HeroSection() {
                 </span>
               ))}
             </div>
-
-            <div className="flex flex-wrap gap-3 mt-10">
-              <QuoteButton />
-              <a
-                href={BUSINESS.phoneHref}
-                className="inline-block bg-transparent text-neutral-ink font-body font-medium text-[16px] px-8 py-4 no-underline border-2 border-neutral-ink hover:bg-neutral-alt transition-colors"
-              >
-                {BUSINESS.phone}
-              </a>
-            </div>
           </div>
 
-          {/* Right — image cluster */}
-          <div className="flex-[1_1_420px] min-w-[300px] self-end">
-            {/* Dominant image */}
-            <div className="relative bg-neutral-charcoal border border-neutral-border overflow-hidden" style={{ aspectRatio: '4/3' }}>
-              {/* PLACEHOLDER — swap for real hero photo before go-live */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-body font-medium text-[12px] tracking-eyebrow uppercase text-neutral-light">
-                  Hero photo — Diarmuid at work
-                </span>
-              </div>
-            </div>
-
-            {/* Two smaller images */}
-            <div className="grid grid-cols-2 gap-2 mt-2">
-              <div className="relative bg-neutral-ink border border-neutral-border overflow-hidden" style={{ aspectRatio: '4/3' }}>
-                {/* PLACEHOLDER — swap before go-live */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-body font-medium text-[11px] tracking-eyebrow uppercase text-neutral-light">Before</span>
-                </div>
-              </div>
-              <div className="relative bg-neutral-charcoal border border-neutral-border overflow-hidden" style={{ aspectRatio: '4/3' }}>
-                {/* PLACEHOLDER — swap before go-live */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-body font-medium text-[11px] tracking-eyebrow uppercase text-neutral-light">After</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Right — quote form */}
+          <AnimateIn delay={0.08}>
+            <HeroQuoteForm />
+          </AnimateIn>
 
         </div>
       </div>
+
+      {/* Full-width photo band — edge to edge, not container-constrained */}
+      <AnimateIn>
+        <div className="relative w-full overflow-hidden" style={{ height: 'clamp(220px, 32vw, 460px)' }}>
+          <Image
+            src={HERO.bandImage}
+            alt={HERO.bandAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      </AnimateIn>
+
     </section>
   )
 }

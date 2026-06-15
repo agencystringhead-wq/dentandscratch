@@ -1,5 +1,4 @@
 import { HeroSection }         from '@/components/sections/HeroSection'
-import { QuotePanelSection }   from '@/components/sections/QuotePanelSection'
 import { StatsBar }            from '@/components/sections/StatsBar'
 import { ServicesGrid }        from '@/components/sections/ServicesGrid'
 import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
@@ -14,7 +13,6 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <QuotePanelSection />
       <StatsBar />
       <ServicesGrid />
       <FeatureCardsSection />
