@@ -1,4 +1,3 @@
-import { BEFORE_AFTER_CATS } from '@/lib/content'
 import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider'
 
 export function BeforeAfterSection() {
@@ -25,20 +24,9 @@ export function BeforeAfterSection() {
           </p>
         </div>
 
-        {/* Category tabs */}
-        <div className="flex flex-wrap gap-[10px] justify-center mt-[28px] mb-[24px]">
-          {BEFORE_AFTER_CATS.map(({ key, label }) => (
-            <button
-              key={key}
-              className="px-[20px] py-[11px] rounded-chip font-semibold text-[14px] border-[1.5px] border-neutral-border bg-white text-neutral-muted cursor-default"
-              disabled
-            >
-              {label}
-            </button>
-          ))}
+        <div className="mt-[28px]">
+          <BeforeAfterSlider />
         </div>
-
-        <BeforeAfterSlider category="pdr" />
       </div>
     </section>
   )
