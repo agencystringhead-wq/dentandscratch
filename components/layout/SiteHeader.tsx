@@ -2,9 +2,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { ChevronDown, Camera, ArrowRight } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { MobileMenu } from './MobileMenu'
 import { NAV_LINKS } from '@/lib/content'
+import { QuoteButton } from '@/components/ui/QuoteButton'
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen]         = useState(false)
@@ -89,29 +90,7 @@ export function SiteHeader() {
 
           {/* Right zone — CTA + hamburger */}
           <div className="ml-auto lg:ml-0 flex items-center justify-end gap-4">
-            <Link
-              href="/free-quote/"
-              className="group hidden sm:inline-flex items-center gap-3 bg-green-primary text-white no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
-              style={{ padding: '14px 24px' }}
-            >
-              <Camera size={18} aria-hidden="true" className="shrink-0" />
-              <span className="flex flex-col items-start gap-[3px]">
-                <span
-                  className="font-body font-medium uppercase tracking-eyebrow leading-none"
-                  style={{ fontSize: '10px', opacity: 0.7 }}
-                >
-                  FREE · NO OBLIGATION
-                </span>
-                <span className="font-body font-bold leading-none" style={{ fontSize: '16px' }}>
-                  Get free quote
-                </span>
-              </span>
-              <ArrowRight
-                size={18}
-                aria-hidden="true"
-                className="shrink-0 transition-transform motion-safe:group-hover:translate-x-1"
-              />
-            </Link>
+            <QuoteButton className="hidden sm:inline-flex" />
 
             {/* Hamburger */}
             <button

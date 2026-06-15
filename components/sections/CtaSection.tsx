@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { CTA_SECTION, BUSINESS } from '@/lib/content'
+import { QuoteButton } from '@/components/ui/QuoteButton'
 
 export function CtaSection() {
   const { heading, body } = CTA_SECTION
@@ -23,12 +23,7 @@ export function CtaSection() {
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center mt-10">
-          <Link
-            href="/free-quote/"
-            className="inline-block bg-white text-green-primary font-body font-medium text-[16px] px-8 py-4 no-underline border-2 border-white hover:bg-neutral-page transition-colors"
-          >
-            Get my free quote
-          </Link>
+          <QuoteButton />
           <a
             href={BUSINESS.phoneHref}
             className="inline-block bg-transparent text-white font-body font-medium text-[16px] px-8 py-4 no-underline border-2 hover:bg-white/10 transition-colors"

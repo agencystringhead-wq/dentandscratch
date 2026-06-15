@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { HERO, BUSINESS } from '@/lib/content'
+import { QuoteButton } from '@/components/ui/QuoteButton'
 
 export function HeroSection() {
   return (
@@ -41,12 +42,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex flex-wrap gap-3 mt-10">
-              <Link
-                href="/free-quote/"
-                className="inline-block bg-green-primary text-white font-body font-medium text-[16px] px-8 py-4 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors"
-              >
-                Get my free quote
-              </Link>
+              <QuoteButton />
               <a
                 href={BUSINESS.phoneHref}
                 className="inline-block bg-transparent text-neutral-ink font-body font-medium text-[16px] px-8 py-4 no-underline border-2 border-neutral-ink hover:bg-neutral-alt transition-colors"
