@@ -20,16 +20,20 @@ export function AfterBannerSection() {
       <div className="max-w-[1200px] mx-auto px-5 lg:px-10 text-center">
 
         {/* Icon badges */}
-        <StaggerIn className="flex flex-wrap justify-center gap-2" staggerDelay={0.08}>
+        <StaggerIn className="flex flex-wrap justify-center gap-1.5" staggerDelay={0.08}>
           {AFTER_BANNER.badges.map((name, i) => {
             const Icon = BADGE_ICONS[name]
             return (
               <StaggerItem key={name}>
                 <span
-                  className="w-11 h-11 flex items-center justify-center bg-green-primary"
-                  style={{ borderRadius: '5px', transform: `rotate(${i % 2 ? 6 : -6}deg)` }}
+                  className="w-9 h-9 flex items-center justify-center bg-green-primary"
+                  style={{
+                    borderRadius: '5px',
+                    transform: `rotate(${i % 2 ? 6 : -6}deg)`,
+                    boxShadow: '0 6px 14px rgba(0,0,0,0.12)',
+                  }}
                 >
-                  {Icon && <Icon size={19} color="white" />}
+                  {Icon && <Icon size={16} color="white" />}
                 </span>
               </StaggerItem>
             )
@@ -52,12 +56,15 @@ export function AfterBannerSection() {
 
         {/* Stat row */}
         <AnimateIn delay={0.05}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 lg:gap-0 lg:divide-x lg:divide-neutral-border">
-            {AFTER_BANNER.stats.map((s, i) => (
-              // All four columns left-aligned; the first sits flush to the wrapper's left edge.
+          <div className="flex flex-wrap justify-center gap-x-10 gap-y-8 mt-16 lg:flex-nowrap lg:justify-between lg:gap-0">
+            {AFTER_BANNER.stats.map((s, i) => {
+              const last = i === AFTER_BANNER.stats.length - 1
+              // Content-width blocks: the divider sits right after each stat, with even
+              // spacing distributed between the four (no equal-grid dead space).
+              return (
               <div
                 key={s.label}
-                className={`flex flex-col items-start text-left lg:px-8 ${i === 0 ? 'lg:pl-0' : ''}`}
+                className={`flex flex-col items-start text-left ${!last ? 'lg:pr-6 lg:border-r lg:border-neutral-border' : ''}`}
               >
                 <span
                   className="font-body font-extrabold text-neutral-ink leading-none"
@@ -70,7 +77,8 @@ export function AfterBannerSection() {
                   {s.label}
                 </span>
               </div>
-            ))}
+              )
+            })}
           </div>
         </AnimateIn>
 
