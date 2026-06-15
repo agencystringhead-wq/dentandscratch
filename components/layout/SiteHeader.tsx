@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { MobileMenu } from './MobileMenu'
 import { NAV_LINKS } from '@/lib/content'
@@ -13,18 +14,15 @@ export function SiteHeader() {
         <div className="max-w-7xl mx-auto px-5 h-16 flex items-center gap-5">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0 no-underline">
-            <div className="w-9 h-6 rounded-[4px] bg-green-primary flex items-center justify-center text-[15px] leading-none">
-              🚗
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-extrabold text-[15px] tracking-tight text-neutral-ink leading-tight">
-                Dent &amp; Scratch
-              </span>
-              <span className="font-label font-semibold text-[11px] text-neutral-muted tracking-wide leading-tight whitespace-nowrap">
-                Direct · Mobile Repairs
-              </span>
-            </div>
+          <Link href="/" className="shrink-0 no-underline">
+            <Image
+              src="/logo/logo.webp"
+              width={500}
+              height={177}
+              className="h-9 w-auto"
+              priority
+              alt="Dent and Scratch Direct"
+            />
           </Link>
 
           {/* Desktop nav */}
