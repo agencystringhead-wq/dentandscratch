@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const SERVICE_LINKS = [
   { label: 'Paintless Dent Repair', href: '/#pdr' },
@@ -15,12 +16,15 @@ export function SiteFooter() {
         {/* Brand */}
         <div className="flex-1 basis-[280px] max-w-[360px]">
           <div className="flex flex-col gap-3 items-start">
-            <div className="w-[46px] h-[30px] rounded-[6px] bg-green-primary/80 flex items-center justify-center text-xl">
-              🚗
-            </div>
-            <span className="font-display font-extrabold text-[18px] text-white tracking-tight">
-              Dent &amp; Scratch Direct
-            </span>
+            <Link href="/" className="no-underline">
+              <Image
+                src="/logo/logo/logo-white.webp"
+                width={500}
+                height={177}
+                className="h-12 w-auto"
+                alt="Dent and Scratch Direct"
+              />
+            </Link>
           </div>
           <p className="text-[14px] leading-relaxed mt-4 text-[#9aa39a]">
             Mobile dent and scratch repair across South East Melbourne. We come to you, factory finish, fraction of the price.
