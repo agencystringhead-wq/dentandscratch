@@ -1,3 +1,130 @@
 # Cloudflare Pages redirects
-# Add permanent (301) or temporary (302) redirects here.
-# Format: /old-path  /new-path  301
+# Format: /old-path/  /new-path/  301
+
+# Named redirects
+/paintless-dent-repair/               /paintless-dent-repair-pdr/           301
+/pdr/                                  /paintless-dent-repair-pdr/           301
+/paintless-dent-repair-pdr/pdr-faqs/  /faqs/                                301
+/testimonials/                         /reviews/                             301
+/directions/                           /contact/                             301
+
+# Suburb → Zone 1: Berwick & South-East Corridor
+/service-areas/berwick/                /service-areas/south-east-melbourne/  301
+/service-areas/narre-warren/           /service-areas/south-east-melbourne/  301
+/service-areas/narre-warren-east/      /service-areas/south-east-melbourne/  301
+/service-areas/officer/                /service-areas/south-east-melbourne/  301
+/service-areas/pakenham/               /service-areas/south-east-melbourne/  301
+/service-areas/beaconsfield/           /service-areas/south-east-melbourne/  301
+/service-areas/endeavour-hills/        /service-areas/south-east-melbourne/  301
+/service-areas/hallam/                 /service-areas/south-east-melbourne/  301
+/service-areas/hampton-park/           /service-areas/south-east-melbourne/  301
+/service-areas/doveton/                /service-areas/south-east-melbourne/  301
+/service-areas/clyde-north/            /service-areas/south-east-melbourne/  301
+/service-areas/botanic-ridge/          /service-areas/south-east-melbourne/  301
+/service-areas/blind-bight/            /service-areas/south-east-melbourne/  301
+
+# Suburb → Zone 2: Greater Dandenong & Monash
+/service-areas/dandenong/              /service-areas/dandenong-monash/      301
+/service-areas/dandenong-south/        /service-areas/dandenong-monash/      301
+/service-areas/springvale/             /service-areas/dandenong-monash/      301
+/service-areas/springvale-south/       /service-areas/dandenong-monash/      301
+/service-areas/noble-park/             /service-areas/dandenong-monash/      301
+/service-areas/keysborough/            /service-areas/dandenong-monash/      301
+/service-areas/glen-waverley/          /service-areas/dandenong-monash/      301
+/service-areas/mount-waverley/         /service-areas/dandenong-monash/      301
+/service-areas/mulgrave/               /service-areas/dandenong-monash/      301
+/service-areas/clayton/                /service-areas/dandenong-monash/      301
+/service-areas/clayton-south/          /service-areas/dandenong-monash/      301
+/service-areas/oakleigh/               /service-areas/dandenong-monash/      301
+/service-areas/oakleigh-south/         /service-areas/dandenong-monash/      301
+/service-areas/chadstone/              /service-areas/dandenong-monash/      301
+
+# Suburb → Zone 3: Dandenong Ranges
+/service-areas/belgrave/               /service-areas/dandenong-ranges/      301
+/service-areas/olinda/                 /service-areas/dandenong-ranges/      301
+/service-areas/sassafras/              /service-areas/dandenong-ranges/      301
+/service-areas/sherbrooke/             /service-areas/dandenong-ranges/      301
+/service-areas/monbulk/                /service-areas/dandenong-ranges/      301
+/service-areas/kallista/               /service-areas/dandenong-ranges/      301
+/service-areas/silvan/                 /service-areas/dandenong-ranges/      301
+/service-areas/menzies-creek/          /service-areas/dandenong-ranges/      301
+/service-areas/cockatoo/               /service-areas/dandenong-ranges/      301
+/service-areas/gembrook/               /service-areas/dandenong-ranges/      301
+/service-areas/upwey/                  /service-areas/dandenong-ranges/      301
+/service-areas/the-basin/              /service-areas/dandenong-ranges/      301
+/service-areas/ferny-creek/            /service-areas/dandenong-ranges/      301
+
+# Suburb → Zone 4: Outer East Melbourne
+/service-areas/ringwood/               /service-areas/outer-east-melbourne/  301
+/service-areas/croydon/                /service-areas/outer-east-melbourne/  301
+/service-areas/bayswater/              /service-areas/outer-east-melbourne/  301
+/service-areas/boronia/                /service-areas/outer-east-melbourne/  301
+/service-areas/ferntree-gully/         /service-areas/outer-east-melbourne/  301
+/service-areas/rowville/               /service-areas/outer-east-melbourne/  301
+/service-areas/wantirna/               /service-areas/outer-east-melbourne/  301
+/service-areas/knoxfield/              /service-areas/outer-east-melbourne/  301
+/service-areas/scoresby/               /service-areas/outer-east-melbourne/  301
+/service-areas/mooroolbark/            /service-areas/outer-east-melbourne/  301
+/service-areas/kilsyth/                /service-areas/outer-east-melbourne/  301
+/service-areas/heathmont/              /service-areas/outer-east-melbourne/  301
+/service-areas/vermont/                /service-areas/outer-east-melbourne/  301
+
+# Suburb → Zone 5: Inner East Melbourne
+/service-areas/hawthorn/               /service-areas/inner-east-melbourne/  301
+/service-areas/kew/                    /service-areas/inner-east-melbourne/  301
+/service-areas/camberwell/             /service-areas/inner-east-melbourne/  301
+/service-areas/canterbury/             /service-areas/inner-east-melbourne/  301
+/service-areas/balwyn/                 /service-areas/inner-east-melbourne/  301
+/service-areas/balwyn-north/           /service-areas/inner-east-melbourne/  301
+/service-areas/glen-iris/              /service-areas/inner-east-melbourne/  301
+/service-areas/burwood/                /service-areas/inner-east-melbourne/  301
+/service-areas/box-hill/               /service-areas/inner-east-melbourne/  301
+/service-areas/blackburn/              /service-areas/inner-east-melbourne/  301
+/service-areas/mitcham/                /service-areas/inner-east-melbourne/  301
+/service-areas/doncaster/              /service-areas/inner-east-melbourne/  301
+/service-areas/donvale/                /service-areas/inner-east-melbourne/  301
+/service-areas/bulleen/                /service-areas/inner-east-melbourne/  301
+/service-areas/templestowe/            /service-areas/inner-east-melbourne/  301
+
+# Suburb → Zone 6: Bayside & Inner South-East
+/service-areas/brighton/               /service-areas/bayside-melbourne/     301
+/service-areas/hampton/                /service-areas/bayside-melbourne/     301
+/service-areas/sandringham/            /service-areas/bayside-melbourne/     301
+/service-areas/black-rock/             /service-areas/bayside-melbourne/     301
+/service-areas/bentleigh/              /service-areas/bayside-melbourne/     301
+/service-areas/cheltenham/             /service-areas/bayside-melbourne/     301
+/service-areas/mentone/                /service-areas/bayside-melbourne/     301
+/service-areas/moorabbin/              /service-areas/bayside-melbourne/     301
+/service-areas/toorak/                 /service-areas/bayside-melbourne/     301
+/service-areas/armadale/               /service-areas/bayside-melbourne/     301
+/service-areas/malvern-east/           /service-areas/bayside-melbourne/     301
+/service-areas/prahran/                /service-areas/bayside-melbourne/     301
+/service-areas/caulfield/              /service-areas/bayside-melbourne/     301
+/service-areas/elsternwick/            /service-areas/bayside-melbourne/     301
+/service-areas/elwood/                 /service-areas/bayside-melbourne/     301
+/service-areas/st-kilda/               /service-areas/bayside-melbourne/     301
+/service-areas/albert-park/            /service-areas/bayside-melbourne/     301
+/service-areas/south-melbourne/        /service-areas/bayside-melbourne/     301
+
+# Suburb → Zone 7: Frankston & Mornington Peninsula
+/service-areas/frankston/              /service-areas/mornington-peninsula/  301
+/service-areas/frankston-north/        /service-areas/mornington-peninsula/  301
+/service-areas/carrum-downs/           /service-areas/mornington-peninsula/  301
+/service-areas/seaford/                /service-areas/mornington-peninsula/  301
+/service-areas/patterson-lakes/        /service-areas/mornington-peninsula/  301
+/service-areas/aspendale-gardens/      /service-areas/mornington-peninsula/  301
+/service-areas/mount-eliza/            /service-areas/mornington-peninsula/  301
+/service-areas/mornington/             /service-areas/mornington-peninsula/  301
+/service-areas/mount-martha/           /service-areas/mornington-peninsula/  301
+/service-areas/moorooduc/              /service-areas/mornington-peninsula/  301
+/service-areas/bittern/                /service-areas/mornington-peninsula/  301
+
+# Suburb → Zone 8: West Gippsland
+# (pakenham + officer send to Zone 1 above — Zone 1 wins on duplicate)
+/service-areas/drouin/                 /service-areas/west-gippsland/        301
+/service-areas/warragul/               /service-areas/west-gippsland/        301
+/service-areas/longwarry/              /service-areas/west-gippsland/        301
+/service-areas/tynong/                 /service-areas/west-gippsland/        301
+/service-areas/buln-buln/              /service-areas/west-gippsland/        301
+/service-areas/nar-nar-goon/           /service-areas/west-gippsland/        301
+/service-areas/garfield/               /service-areas/west-gippsland/        301

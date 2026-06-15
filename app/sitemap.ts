@@ -1,21 +1,5 @@
-import type { MetadataRoute } from 'next'
-import { BUSINESS } from '@/lib/content'
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const base = BUSINESS.url
-
-  return [
-    {
-      url: base,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${base}/paintless-dent-repair`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ]
-}
+// The XML sitemap is served via public/sitemap.xml (static file).
+// This file is intentionally left without a default export so Next.js does not claim
+// the /sitemap namespace as a metadata route — freeing app/sitemap/page.tsx for the HTML sitemap.
+// When you add more pages, update public/sitemap.xml directly.
+export {}

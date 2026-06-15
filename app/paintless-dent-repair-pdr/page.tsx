@@ -2,11 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { PDR_PAGE, PDR_SECTION, BUSINESS } from '@/lib/content'
 
-// This URL has moved to /paintless-dent-repair-pdr/ — see public/_redirects for the 301
 export const metadata: Metadata = {
   title: PDR_PAGE.title,
   description: PDR_PAGE.description,
-  robots: { index: false, follow: true },
 }
 
 export default function PdrPage() {
@@ -35,7 +33,7 @@ export default function PdrPage() {
           </p>
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/#quote"
+              href="/free-quote/"
               className="no-underline inline-flex items-center gap-2 bg-green-primary text-white font-bold text-[15px] px-[26px] py-[14px] rounded-chip shadow-btn hover:-translate-y-0.5 hover:bg-green-dark transition-all"
             >
               Get a free quote &#8594;
@@ -75,6 +73,7 @@ export default function PdrPage() {
       </section>
 
       {/* FAQs */}
+      {/* TODO: Add FAQPage JSON-LD schema */}
       <section style={{ padding: 'clamp(40px,6vw,64px) 22px' }}>
         <div className="max-w-[860px] mx-auto">
           <h2 className="font-display font-extrabold text-[28px] tracking-tight mb-8">

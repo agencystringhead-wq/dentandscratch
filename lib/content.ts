@@ -10,13 +10,53 @@ export const BUSINESS = {
   abn:          '', // TODO: add ABN before go-live
 } as const
 
-export const NAV_LINKS = [
-  { label: 'Services',  href: '/#services' },
-  { label: 'PDR',       href: '/#pdr' },
-  { label: 'Our Work',  href: '/#work' },
-  { label: 'About',     href: '/#owner' },
-  { label: 'Reviews',   href: '/#reviews' },
+export const SERVICES_NAV = [
+  { label: 'Paintless Dent Repair (PDR)', href: '/paintless-dent-repair-pdr/' },
+  { label: 'Paint Repairs',               href: '/paint-repairs/' },
+  { label: 'Bumper Repair',               href: '/bumper-repairs/' },
+  { label: 'Hail Damage Repair',          href: '/hail-damage-repair/' },
+  { label: 'Scratch & Chip Repair',       href: '/scratch-and-chip-repair/' },
+  { label: 'Minor Rust Repair',           href: '/minor-rust-repairs/' },
+  { label: 'Plastic Repair',              href: '/plastic-repairs/' },
+  { label: 'Alloy Wheel Repair',          href: '/alloy-wheel-repair/' },
 ] as const
+
+export const SERVICE_AREAS_NAV = [
+  { label: 'Berwick & South-East Corridor',   href: '/service-areas/south-east-melbourne/' },
+  { label: 'Greater Dandenong & Monash',       href: '/service-areas/dandenong-monash/' },
+  { label: 'Dandenong Ranges',                 href: '/service-areas/dandenong-ranges/' },
+  { label: 'Outer East Melbourne',             href: '/service-areas/outer-east-melbourne/' },
+  { label: 'Inner East Melbourne',             href: '/service-areas/inner-east-melbourne/' },
+  { label: 'Bayside & Inner South-East',       href: '/service-areas/bayside-melbourne/' },
+  { label: 'Frankston & Mornington Peninsula', href: '/service-areas/mornington-peninsula/' },
+  { label: 'West Gippsland',                   href: '/service-areas/west-gippsland/' },
+] as const
+
+export type NavItem = {
+  label: string
+  href: string
+  dropdown?: ReadonlyArray<{ readonly label: string; readonly href: string }>
+}
+
+export const NAV_LINKS: NavItem[] = [
+  { label: 'Before & After', href: '/our-work/' },
+  { label: 'PDR',            href: '/paintless-dent-repair-pdr/' },
+  { label: 'Services',       href: '/services/',      dropdown: SERVICES_NAV },
+  { label: 'About',          href: '/about-us/' },
+  { label: 'Service Areas',  href: '/service-areas/', dropdown: SERVICE_AREAS_NAV },
+  { label: 'Reviews',        href: '/reviews/' },
+  { label: 'FAQs',           href: '/faqs/' },
+  { label: 'Blog',           href: '/blog/' },
+  { label: 'Contact',        href: '/contact/' },
+]
+
+export const FOOTER_NAV = {
+  legal: [
+    { label: 'Privacy Policy',     href: '/privacy-policy/' },
+    { label: 'Terms & Conditions', href: '/terms-conditions/' },
+    { label: 'Sitemap',            href: '/site-map/' },
+  ],
+} as const
 
 export const HERO = {
   heading:    'Dents and scratches gone,',

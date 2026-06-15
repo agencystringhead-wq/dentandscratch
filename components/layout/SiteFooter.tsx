@@ -2,10 +2,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const SERVICE_LINKS = [
-  { label: 'Paintless Dent Repair', href: '/#pdr' },
-  { label: 'Bumper Repair',         href: '/#services' },
-  { label: 'Paint Repair',          href: '/#services' },
-  { label: 'Hail Damage',           href: '/#services' },
+  { label: 'Paintless Dent Repair', href: '/paintless-dent-repair-pdr/' },
+  { label: 'Paint Repairs',         href: '/paint-repairs/' },
+  { label: 'Bumper Repair',         href: '/bumper-repairs/' },
+  { label: 'Hail Damage Repair',    href: '/hail-damage-repair/' },
+  { label: 'Scratch & Chip Repair', href: '/scratch-and-chip-repair/' },
 ]
 
 export function SiteFooter() {
@@ -76,7 +77,11 @@ export function SiteFooter() {
 
       <div className="max-w-7xl mx-auto mt-8 pt-5 border-t border-[#1f261f] flex flex-wrap gap-2.5 justify-between text-[12.5px] text-[#6f786f]">
         <span>&copy; 2026 Dent and Scratch Direct. All rights reserved.</span>
-        <span>Berwick VIC Melbourne &middot; 0447 847 655</span>
+        <div className="flex flex-wrap gap-x-5 gap-y-1">
+          <Link href="/privacy-policy/"  className="hover:text-[#9aa39a] transition-colors no-underline">Privacy Policy</Link>
+          <Link href="/terms-conditions/" className="hover:text-[#9aa39a] transition-colors no-underline">Terms &amp; Conditions</Link>
+          <Link href="/site-map/"        className="hover:text-[#9aa39a] transition-colors no-underline">Sitemap</Link>
+        </div>
       </div>
     </footer>
   )
