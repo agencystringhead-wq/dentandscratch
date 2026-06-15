@@ -22,6 +22,9 @@ export function WhyChooseSection() {
         >
           {WHY_CHOOSE.heading}
         </h2>
+        <p className="font-body font-medium text-[17px] text-neutral-light leading-relaxed mt-5 max-w-[40em]">
+          {WHY_CHOOSE.sub}
+        </p>
 
         <StaggerIn
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 mt-20"

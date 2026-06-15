@@ -74,7 +74,8 @@ export const SERVICES_SECTION = {
 
 // Dark "Why choose us" band. Icon names map to lucide-react.
 export const WHY_CHOOSE = {
-  heading: 'Why drivers pick us over the panel shop',
+  heading: 'Less hassle, less cost, same finish',
+  sub:     'Why thousands of South East Melbourne cars get fixed in the driveway, not the body shop.',
   items: [
     { icon: 'MapPin',      title: 'We come to you',                  desc: 'Repairs done at your home or work. No dropping the car off, no waiting around.' },
     { icon: 'Clock',       title: 'Done in 2–3 hours',               desc: 'Most jobs finished while you get on with your day, not gone for days like a panel shop.' },
