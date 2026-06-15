@@ -25,10 +25,10 @@ export function SiteHeader() {
           scrolled ? 'bg-neutral-page border-b border-neutral-border' : 'bg-transparent'
         }`}
       >
-        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center">
 
           {/* Logo */}
-          <Link href="/" className="shrink-0 no-underline">
+          <Link href="/" className="shrink-0 lg:flex-1 no-underline">
             <Image
               src="/logo/logo.webp"
               width={500}
@@ -39,8 +39,8 @@ export function SiteHeader() {
             />
           </Link>
 
-          {/* Desktop nav — centred in middle grid column */}
-          <nav className="hidden lg:flex items-center gap-6" aria-label="Main navigation">
+          {/* Desktop nav — flex-1 so it occupies the true centre third */}
+          <nav className="hidden lg:flex flex-1 items-center justify-center gap-6" aria-label="Main navigation">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
                 <div
@@ -89,7 +89,7 @@ export function SiteHeader() {
           </nav>
 
           {/* Right zone — CTA + hamburger */}
-          <div className="ml-auto lg:ml-0 flex items-center justify-end gap-4">
+          <div className="ml-auto lg:ml-0 lg:flex-1 flex items-center justify-end gap-4">
             <QuoteButton className="hidden sm:inline-flex" />
 
             {/* Hamburger */}
