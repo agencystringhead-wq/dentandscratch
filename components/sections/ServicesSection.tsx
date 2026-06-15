@@ -81,18 +81,22 @@ function ServiceCard({ service }: { service: Service }) {
   )
 }
 
-// Rounded card thumbnail with a neutral grey fallback if the file is missing.
+// Wide landscape image (~48% of the card) in a fixed rounded frame; the image
+// gently zooms within the clipped frame on card hover. Grey fallback if missing.
 function ServiceImage({ src, alt }: { src: string; alt: string }) {
   const [ok, setOk] = useState(true)
   return (
-    <div className="relative w-[220px] h-[132px] rounded-[8px] overflow-hidden bg-neutral-light shrink-0">
+    <div
+      className="relative w-[48%] shrink-0 rounded-[8px] overflow-hidden bg-neutral-light"
+      style={{ aspectRatio: '3 / 2' }}
+    >
       {ok && (
         <Image
           src={src}
           alt={alt}
           fill
-          sizes="220px"
-          className="object-cover"
+          sizes="(max-width: 1024px) 50vw, 280px"
+          className="object-cover motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.06]"
           onError={() => setOk(false)}
         />
       )}
