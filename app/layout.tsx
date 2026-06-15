@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Inter, Saira_Condensed } from 'next/font/google'
 import '@/styles/globals.css'
+import { SiteHeader } from '@/components/layout/SiteHeader'
+import { SiteFooter } from '@/components/layout/SiteFooter'
+import { SmoothScrollProvider } from '@/components/ui/SmoothScrollProvider'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -39,7 +42,13 @@ export default function RootLayout({
       lang="en-AU"
       className={`${bricolage.variable} ${inter.variable} ${saira.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <SmoothScrollProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </SmoothScrollProvider>
+      </body>
     </html>
   )
 }
