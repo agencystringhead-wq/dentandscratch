@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { PDR_SECTION } from '@/lib/content'
+import { AnimateIn } from '@/components/ui/AnimateIn'
+import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function PdrSection() {
   const { eyebrow, heading, body, points, steps, timeStat } = PDR_SECTION
@@ -51,17 +53,16 @@ export function PdrSection() {
               {body}
             </p>
 
-            <div className="flex flex-wrap gap-[14px] mt-[28px]">
+            <StaggerIn className="flex flex-wrap gap-[14px] mt-[28px]" staggerDelay={0.1}>
               {points.map(({ icon, text }) => (
-                <div
-                  key={text}
-                  className="flex items-center gap-[10px] bg-white/[0.1] border border-white/[0.18] px-[16px] py-[11px] rounded-[14px]"
-                >
-                  <span className="text-[18px]">{icon}</span>
-                  <span className="font-semibold text-[14px]">{text}</span>
-                </div>
+                <StaggerItem key={text}>
+                  <div className="flex items-center gap-[10px] bg-white/[0.1] border border-white/[0.18] px-[16px] py-[11px] rounded-[14px]">
+                    <span className="text-[18px]">{icon}</span>
+                    <span className="font-semibold text-[14px]">{text}</span>
+                  </div>
+                </StaggerItem>
               ))}
-            </div>
+            </StaggerIn>
 
             <Link
               href="/#quote"

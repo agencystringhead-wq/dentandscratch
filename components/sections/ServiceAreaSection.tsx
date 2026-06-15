@@ -1,4 +1,6 @@
 import { SERVICE_AREA } from '@/lib/content'
+import { AnimateIn } from '@/components/ui/AnimateIn'
+import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function ServiceAreaSection() {
   const { eyebrow, heading, sub, suburbs } = SERVICE_AREA
@@ -20,16 +22,15 @@ export function ServiceAreaSection() {
         </h2>
         <p className="text-[15px] text-neutral-muted max-w-[36em] mx-auto mb-6">{sub}</p>
 
-        <div className="flex flex-wrap gap-[9px] justify-center">
+        <StaggerIn className="flex flex-wrap gap-[9px] justify-center" staggerDelay={0.04}>
           {suburbs.map((suburb) => (
-            <span
-              key={suburb}
-              className="bg-white border border-neutral-border text-[#2c3a2f] font-medium text-[13.5px] px-[15px] py-[9px] rounded-chip transition-all duration-150 hover:border-green-primary hover:text-green-dark hover:bg-green-bg cursor-default"
-            >
-              {suburb}
-            </span>
+            <StaggerItem key={suburb}>
+              <span className="inline-block bg-white border border-neutral-border text-[#2c3a2f] font-medium text-[13.5px] px-[15px] py-[9px] rounded-chip transition-all duration-150 hover:border-green-primary hover:text-green-dark hover:bg-green-bg cursor-default">
+                {suburb}
+              </span>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerIn>
       </div>
     </section>
   )

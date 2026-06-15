@@ -1,4 +1,6 @@
 import { REVIEWS } from '@/lib/content'
+import { AnimateIn } from '@/components/ui/AnimateIn'
+import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function ReviewsSection() {
   const { eyebrow, heading, items, badges } = REVIEWS
@@ -11,7 +13,7 @@ export function ReviewsSection() {
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-[32px]">
+        <AnimateIn className="text-center mb-[32px]">
           <span className="font-label font-semibold text-[13px] tracking-[0.2em] uppercase text-green-primary">
             {eyebrow}
           </span>
@@ -22,17 +24,18 @@ export function ReviewsSection() {
             {heading}
           </h2>
           <div className="text-[#F5A524] text-[20px] tracking-[2px] mt-2">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        </div>
+        </AnimateIn>
 
         {/* Review cards */}
-        <div
+        <StaggerIn
           className="grid gap-[18px]"
           style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))' }}
+          staggerDelay={0.14}
         >
           {items.map(({ text, name, suburb, initials, gradient }) => (
+            <StaggerItem key={name}>
             <div
-              key={name}
-              className="bg-neutral-page border border-neutral-border rounded-[20px] p-[26px] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9ed8af] hover:shadow-[0_18px_36px_-22px_rgba(14,18,14,0.22)]"
+              className="bg-neutral-page border border-neutral-border rounded-[20px] p-[26px] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#9ed8af] hover:shadow-[0_18px_36px_-22px_rgba(14,18,14,0.22)] h-full"
             >
               <div className="text-[#F5A524] text-[15px] tracking-[1px]">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
               <p className="text-[15.5px] leading-[1.6] text-[#2c3a2f] mt-3 mb-[18px]">{text}</p>
@@ -49,8 +52,9 @@ export function ReviewsSection() {
                 </div>
               </div>
             </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerIn>
 
         {/* Trust badges */}
         <div className="flex flex-wrap gap-[14px] justify-center mt-[34px] items-center">

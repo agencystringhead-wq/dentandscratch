@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { SERVICES } from '@/lib/content'
+import { AnimateIn } from '@/components/ui/AnimateIn'
+import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 export function ServicesGrid() {
   return (
@@ -29,11 +31,11 @@ export function ServicesGrid() {
           </Link>
         </div>
 
-        <div className="grid gap-[18px]" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))' }}>
+        <StaggerIn className="grid gap-[18px]" style={{ gridTemplateColumns: 'repeat(auto-fit,minmax(250px,1fr))' }}>
           {SERVICES.map(({ key, title, desc, tag, time }) => (
+            <StaggerItem key={key}>
             <article
-              key={key}
-              className="bg-white border border-neutral-border rounded-[22px] overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_24px_44px_-22px_rgba(14,18,14,0.28)] hover:border-[#c8ebd2]"
+              className="bg-white border border-neutral-border rounded-[22px] overflow-hidden flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_24px_44px_-22px_rgba(14,18,14,0.28)] hover:border-[#c8ebd2] h-full"
             >
               {/* Image placeholder */}
               <div className="relative aspect-[16/10] bg-neutral-ink overflow-hidden">
@@ -60,8 +62,9 @@ export function ServicesGrid() {
                 </div>
               </div>
             </article>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerIn>
       </div>
     </section>
   )
