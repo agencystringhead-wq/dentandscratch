@@ -28,7 +28,7 @@ export function SiteHeader() {
         <div className="max-w-[1200px] mx-auto px-5 lg:px-10 h-[72px] flex items-center">
 
           {/* Zone 1 — logo, left-aligned */}
-          <div className="flex-none lg:flex-1 flex items-center justify-start">
+          <div className="flex-none lg:flex-1 lg:basis-0 min-w-0 flex items-center justify-start">
             <Link href="/" className="no-underline">
               <Image
                 src="/logo/logo.webp"
@@ -42,7 +42,7 @@ export function SiteHeader() {
           </div>
 
           {/* Zone 2 — nav links, true centre */}
-          <nav className="hidden lg:flex flex-1 items-center justify-center gap-6" aria-label="Main navigation">
+          <nav className="hidden lg:flex flex-1 lg:basis-0 min-w-0 items-center justify-center gap-6" aria-label="Main navigation">
             {NAV_LINKS.map((item) =>
               item.dropdown ? (
                 <div
@@ -91,7 +91,7 @@ export function SiteHeader() {
           </nav>
 
           {/* Zone 3 — CTA + hamburger, right-aligned */}
-          <div className="flex-none ml-auto lg:ml-0 lg:flex-1 flex items-center justify-end gap-4">
+          <div className="flex-none ml-auto lg:ml-0 lg:flex-1 lg:basis-0 min-w-0 flex items-center justify-end gap-4">
             <QuoteButton className="hidden sm:inline-flex" />
 
             {/* Hamburger */}
