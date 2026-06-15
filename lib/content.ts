@@ -114,25 +114,30 @@ export const HERO = {
   para:        "We're Dent and Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
   checks:      ['We come to you', 'Same day quotes', 'Fully insured'],
   socialProof: '4.9 · hundreds of happy drivers',
+  // PLACEHOLDER — drop real avatar photos at these paths; missing files fall back to grey circles
+  avatars:     ['/images/avatars/1.jpg', '/images/avatars/2.jpg', '/images/avatars/3.jpg'],
   bandImage:   '/images/hero-band.webp',
   bandAlt:     "Mobile dent repair at a customer's driveway",
 } as const
 
-// Hero quote form (green-gradient panel). Single-sourced copy; AU fields.
+// Hero quote form (green-gradient panel), 2 steps. Single-sourced copy; AU fields.
 export const HERO_FORM = {
   heading: 'Snap it, send it, get a quote',
   sub:     'Fast, on-the-spot dent and scratch repairs at your home or workplace, finished in a couple of hours.',
-  fields: [
-    { key: 'name',     placeholder: 'Name',                                  required: true,  type: 'text',  inputMode: 'text'  },
-    { key: 'phone',    placeholder: 'Phone',                                 required: true,  type: 'tel',   inputMode: 'tel'   },
-    { key: 'email',    placeholder: 'Email',                                 required: true,  type: 'email', inputMode: 'email' },
-    { key: 'vehicle',  placeholder: 'Make & model (e.g. Toyota Corolla 2019)', required: false, type: 'text',  inputMode: 'text'  },
-    { key: 'address',  placeholder: 'Suburb / address',                      required: false, type: 'text',  inputMode: 'text'  },
-    { key: 'postcode', placeholder: 'Postcode',                              required: true,  type: 'text',  inputMode: 'numeric' },
+  step1: [
+    { key: 'name',    placeholder: 'Name',                                   type: 'text',  inputMode: 'text'  },
+    { key: 'phone',   placeholder: 'Phone',                                  type: 'tel',   inputMode: 'tel'   },
+    { key: 'email',   placeholder: 'Email',                                  type: 'email', inputMode: 'email' },
+    { key: 'vehicle', placeholder: 'Make & model (e.g. Toyota Corolla 2019)', type: 'text',  inputMode: 'text'  },
+  ],
+  step2: [
+    { key: 'address',  placeholder: 'Suburb / address', type: 'text', inputMode: 'text'    },
+    { key: 'postcode', placeholder: 'Postcode',         type: 'text', inputMode: 'numeric' },
   ],
   messagePlaceholder: 'Message (describe the damage, optional)',
   uploadText:         'Drop photos of the damage here, or click to browse',
   uploadNote:         'Send one close-up of the damage and one of the whole panel, for each repair.',
+  continueLabel:      'Continue',
   submitLabel:        'YES, SEND MY PRICE',
   replyNote:          'We usually reply within a few hours.',
 } as const
