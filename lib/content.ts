@@ -11,14 +11,14 @@ export const BUSINESS = {
 } as const
 
 export const SERVICES_NAV = [
-  { label: 'Paintless Dent Repair (PDR)', href: '/paintless-dent-repair-pdr/' },
-  { label: 'Paint Repairs',               href: '/paint-repairs/' },
-  { label: 'Bumper Repair',               href: '/bumper-repairs/' },
-  { label: 'Hail Damage Repair',          href: '/hail-damage-repair/' },
-  { label: 'Scratch & Chip Repair',       href: '/scratch-and-chip-repair/' },
-  { label: 'Minor Rust Repair',           href: '/minor-rust-repairs/' },
-  { label: 'Plastic Repair',              href: '/plastic-repairs/' },
-  { label: 'Alloy Wheel Repair',          href: '/alloy-wheel-repair/' },
+  { label: 'Paintless Dent Repair (PDR)', href: '/paintless-dent-repair-pdr/', icon: 'CircleDot',  desc: 'Dents and dings massaged out, factory paint kept.',          featured: true },
+  { label: 'Paint Repairs',               href: '/paint-repairs/',             icon: 'Paintbrush', desc: 'Scratches and chips colour matched and blended in.' },
+  { label: 'Bumper Repair',               href: '/bumper-repairs/',            icon: 'Car',        desc: 'Scuffs, scrapes and cracks made good in a couple of hours.' },
+  { label: 'Hail Damage Repair',          href: '/hail-damage-repair/',        icon: 'CloudHail',  desc: 'Dozens of little dents lifted with PDR, no respray.' },
+  { label: 'Scratch & Chip Repair',       href: '/scratch-and-chip-repair/',   icon: 'Slash',      desc: 'Tidy up the marks that catch your eye every day.' },
+  { label: 'Minor Rust Repair',           href: '/minor-rust-repairs/',        icon: 'Droplets',   desc: 'Small rust spots cut out and sealed before they spread.' },
+  { label: 'Plastic Repair',              href: '/plastic-repairs/',           icon: 'Layers',     desc: 'Cracked trims, mirrors and bumpers brought back.' },
+  { label: 'Alloy Wheel Repair',          href: '/alloy-wheel-repair/',        icon: 'Disc3',      desc: 'Kerbed and scuffed alloys refinished to match.' },
 ] as const
 
 export const SERVICE_AREAS_NAV = [
@@ -47,6 +47,29 @@ export const NAV_LINKS: NavItem[] = [
   { label: 'Reviews',        href: '/reviews/' },
   { label: 'Contact',        href: '/contact/' },
 ]
+
+// Desktop "Services" mega-menu featured block (mobile uses SERVICES_NAV accordion)
+export const SERVICES_MEGA = {
+  prompt:       'Not sure which one you need?',
+  promptSub:    'Send Diarmuid a photo and get a price back, usually within the hour.',
+  viewAllLabel: 'View all services →',
+  viewAllHref:  '/services/',
+} as const
+
+// Desktop "Service Areas" mega-menu, grouped by council (mobile uses SERVICE_AREAS_NAV accordion)
+// NOTE: per-suburb pages don't exist yet, so each suburb links to its zone hub page.
+// Confirm council groupings and suburb routing with Diarmuid before go-live.
+export const SERVICE_AREAS_MEGA = {
+  zones: [
+    { zone: 'Casey',             href: '/service-areas/south-east-melbourne/', suburbs: ['Berwick', 'Narre Warren', 'Cranbourne', 'Hampton Park', 'Endeavour Hills'] },
+    { zone: 'Cardinia',          href: '/service-areas/south-east-melbourne/', suburbs: ['Pakenham', 'Officer', 'Beaconsfield', 'Clyde', 'Emerald'] },
+    { zone: 'Greater Dandenong', href: '/service-areas/dandenong-monash/',     suburbs: ['Dandenong', 'Springvale', 'Keysborough', 'Noble Park'] },
+    { zone: 'Frankston',         href: '/service-areas/mornington-peninsula/', suburbs: ['Frankston', 'Carrum Downs', 'Seaford', 'Langwarrin'] },
+    { zone: 'Monash & Knox',     href: '/service-areas/dandenong-monash/',     suburbs: ['Glen Waverley', 'Mulgrave', 'Rowville', 'Wantirna'] },
+  ],
+  viewAllLabel: 'View all service areas →',
+  viewAllHref:  '/service-areas/',
+} as const
 
 export const FOOTER_NAV = {
   pages: [
