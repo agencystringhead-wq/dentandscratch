@@ -10,16 +10,66 @@ export const BUSINESS = {
   abn:          '', // TODO: add ABN before go-live
 } as const
 
-export const SERVICES_NAV = [
-  { label: 'Paintless Dent Repair (PDR)', href: '/paintless-dent-repair-pdr/', icon: 'CircleDot',  desc: 'Dents and dings massaged out, factory paint kept.',          featured: true },
-  { label: 'Paint Repairs',               href: '/paint-repairs/',             icon: 'Paintbrush', desc: 'Scratches and chips colour matched and blended in.' },
-  { label: 'Bumper Repair',               href: '/bumper-repairs/',            icon: 'Car',        desc: 'Scuffs, scrapes and cracks made good in a couple of hours.' },
-  { label: 'Hail Damage Repair',          href: '/hail-damage-repair/',        icon: 'CloudHail',  desc: 'Dozens of little dents lifted with PDR, no respray.' },
-  { label: 'Scratch & Chip Repair',       href: '/scratch-and-chip-repair/',   icon: 'Slash',      desc: 'Tidy up the marks that catch your eye every day.' },
-  { label: 'Minor Rust Repair',           href: '/minor-rust-repairs/',        icon: 'Droplets',   desc: 'Small rust spots cut out and sealed before they spread.' },
-  { label: 'Plastic Repair',              href: '/plastic-repairs/',           icon: 'Layers',     desc: 'Cracked trims, mirrors and bumpers brought back.' },
-  { label: 'Alloy Wheel Repair',          href: '/alloy-wheel-repair/',        icon: 'Disc3',      desc: 'Kerbed and scuffed alloys refinished to match.' },
-] as const
+export type Service = {
+  key:       string
+  tag:       string    // chip label
+  title:     string
+  desc:      string    // services-section card copy
+  navDesc:   string    // shorter line for the nav mega-menu
+  image:     string
+  alt:       string
+  href:      string
+  icon:      string    // lucide-react icon name for the mega-menu badge
+  featured?: boolean
+}
+
+// Canonical service list — single source for the services-section cards, the nav
+// mega-menu (via SERVICES_NAV below), the /services/ page and the sitemap.
+export const SERVICES: Service[] = [
+  { key: 'pdr', tag: 'Our specialty', title: 'Paintless Dent Repair', icon: 'CircleDot', featured: true,
+    desc:    'Dents and dings massaged out from behind the panel, factory paint kept. No filler, no respray.',
+    navDesc: 'Dents and dings massaged out, factory paint kept.',
+    image: '/images/services/pdr.webp',            alt: 'Paintless dent repair on a car door panel',  href: '/paintless-dent-repair-pdr/' },
+  { key: 'paint', tag: 'Colour match', title: 'Paint Repairs', icon: 'Paintbrush',
+    desc:    "Scratches, chips and scuffs colour-matched to your car and blended so you can't tell.",
+    navDesc: 'Scratches and chips colour matched and blended in.',
+    image: '/images/services/paint-repair.webp',   alt: 'Paint repair colour-matched on a car panel', href: '/paint-repairs/' },
+  { key: 'bumper', tag: 'Most common', title: 'Bumper Repair', icon: 'Car',
+    desc:    'Scuffed, cracked or scraped plastic bumpers made good, usually in a couple of hours.',
+    navDesc: 'Scuffs, scrapes and cracks made good in a couple of hours.',
+    image: '/images/services/bumper-repairs.webp', alt: 'Scuffed car bumper being repaired',           href: '/bumper-repairs/' },
+  { key: 'hail', tag: 'Storm season', title: 'Hail Damage Repair', icon: 'CloudHail',
+    desc:    'Dozens of small dents lifted with paintless repair. Insurance-friendly, no respray.',
+    navDesc: 'Dozens of little dents lifted with PDR, no respray.',
+    image: '/images/services/hail-damage.webp',    alt: 'Hail damage dents across a car panel',        href: '/hail-damage-repair/' },
+  { key: 'scratch', tag: 'Same day', title: 'Scratch & Chip Repair', icon: 'Slash',
+    desc:    'Stone chips and scratches sorted on the spot before they spread or rust.',
+    navDesc: 'Tidy up the marks that catch your eye every day.',
+    image: '/images/services/scratch-chip.webp',   alt: 'Stone chip and scratch on car paint',         href: '/scratch-and-chip-repair/' },
+  { key: 'rust', tag: 'Stop the spread', title: 'Minor Rust Repair', icon: 'Droplets',
+    desc:    'Small surface rust treated and repaired early, before it eats into the panel.',
+    navDesc: 'Small rust spots cut out and sealed before they spread.',
+    image: '/images/services/rust-repair.webp',    alt: 'Surface rust on a car panel being treated',   href: '/minor-rust-repairs/' },
+  { key: 'plastic', tag: 'Trim & panels', title: 'Plastic Repair', icon: 'Layers',
+    desc:    'Cracked plastic trims, mirrors and panels repaired instead of replaced.',
+    navDesc: 'Cracked trims, mirrors and bumpers brought back.',
+    image: '/images/services/plastic-repair.webp', alt: 'Cracked plastic car trim being repaired',     href: '/plastic-repairs/' },
+  { key: 'alloy', tag: 'Kerb rash', title: 'Alloy Wheel Repair', icon: 'Disc3',
+    desc:    'Scuffed and gutter-rashed alloys refinished back to a clean factory look.',
+    navDesc: 'Kerbed and scuffed alloys refinished to match.',
+    image: '/images/services/alloy-wheel.webp',    alt: 'Kerb-rashed alloy wheel being refinished',    href: '/alloy-wheel-repair/' },
+]
+
+// Derived nav view — keeps the mega-menu, /services/ page, sitemap and mobile nav on
+// the one SERVICES source. The mega-menu uses the tighter navDesc copy.
+export const SERVICES_NAV = SERVICES.map((s) => ({
+  label: s.title, href: s.href, icon: s.icon, desc: s.navDesc, featured: s.featured ?? false,
+}))
+
+export const SERVICES_SECTION = {
+  heading: 'Mobile repairs we do, right where your car is parked',
+  cta:     { label: 'View All Services', href: '/services/' },
+}
 
 export const SERVICE_AREAS_NAV = [
   { label: 'Berwick & South-East Corridor',   href: '/service-areas/south-east-melbourne/' },
@@ -205,39 +255,6 @@ export const PDR_SECTION = {
     label: 'Typical PDR turnaround, done at your place while you carry on with your day.',
   },
 } as const
-
-export type ServiceKey = 'pdr' | 'bumper' | 'paint' | 'hail'
-
-export const SERVICES = [
-  {
-    key:   'pdr'    as ServiceKey,
-    title: 'Paintless Dent Repair',
-    desc:  'Door dings and dents massaged out from behind the panel. Factory finish kept.',
-    tag:   'Our specialty',
-    time:  'About 2 hours',
-  },
-  {
-    key:   'bumper' as ServiceKey,
-    title: 'Bumper Repair',
-    desc:  'Scuffs, scrapes and cracks on plastic bumpers, made good in a couple of hours.',
-    tag:   'Most popular',
-    time:  'Usually 2 to 3 hours',
-  },
-  {
-    key:   'paint'  as ServiceKey,
-    title: 'Paint Repair',
-    desc:  'Scratches and chips colour matched to your car and blended so you cannot tell.',
-    tag:   'Colour match',
-    time:  'Same day',
-  },
-  {
-    key:   'hail'   as ServiceKey,
-    title: 'Hail Damage',
-    desc:  'Dozens of little dents lifted with PDR. No filler, no respray, insurance friendly.',
-    tag:   'Storm season',
-    time:  'Half to full day',
-  },
-] as const
 
 export const BEFORE_AFTER_CATS = [
   { key: 'pdr',    label: 'PDR',    title: 'Paintless Dent Repair', blurb: 'Door ding massaged out, factory paint untouched.' },

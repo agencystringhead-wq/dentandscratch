@@ -1,7 +1,7 @@
 import { HeroSection }         from '@/components/sections/HeroSection'
 import { AfterBannerSection }  from '@/components/sections/AfterBannerSection'
 import { WorkSection }         from '@/components/sections/WorkSection'
-import { ServicesGrid }        from '@/components/sections/ServicesGrid'
+import { ServicesSection }     from '@/components/sections/ServicesSection'
 import { FeatureCardsSection } from '@/components/sections/FeatureCardsSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
 import { AboutSection }        from '@/components/sections/AboutSection'
@@ -16,7 +16,7 @@ export default function HomePage() {
       <HeroSection />
       <AfterBannerSection />
       <WorkSection />
-      <ServicesGrid />
+      <ServicesSection />
       <FeatureCardsSection />
       <WhyUsSection />
       <AboutSection />
