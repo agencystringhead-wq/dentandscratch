@@ -26,9 +26,9 @@ export function WorkSection() {
           </div>
           <Link
             href={cta.href}
-            className="shrink-0 self-start inline-block bg-green-primary text-white font-body font-medium text-[16px] px-6 py-3.5 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors whitespace-nowrap"
+            className="cta-fill-invert shrink-0 self-start lg:mt-5 inline-block rounded-[5px] bg-green-primary text-white font-body font-medium text-[16px] px-10 py-3.5 no-underline whitespace-nowrap"
           >
-            {cta.label}
+            <span className="relative z-10">{cta.label}</span>
           </Link>
         </div>
 
@@ -48,9 +48,13 @@ export function WorkSection() {
 
 function WorkCardView({ card }: { card: WorkCard }) {
   // Images already include the baked-in BEFORE/AFTER labels and divider, so the card
-  // is just the clean composite image inside the panel — no overlays.
+  // is just the clean composite image inside the panel — no overlays. Whole card links
+  // to the gallery; lifts slightly on hover (disabled under reduced motion).
   return (
-    <div className="bg-white border border-neutral-border overflow-hidden">
+    <Link
+      href={WORK_SECTION.cta.href}
+      className="block bg-white border border-neutral-border overflow-hidden rounded-[10px] no-underline motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-1"
+    >
       {card.kind === 'composite' ? (
         <WorkImage src={card.image} alt={card.alt} />
       ) : (
@@ -59,7 +63,7 @@ function WorkCardView({ card }: { card: WorkCard }) {
           <WorkImage src={card.after} alt={card.alt} />
         </div>
       )}
-    </div>
+    </Link>
   )
 }
 

@@ -78,6 +78,29 @@
   }
 }
 
+/* Inverted variant — rests green, fills ink black from the bottom up on hover. */
+.cta-fill-invert {
+  position: relative;
+  overflow: hidden;
+}
+.cta-fill-invert::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #1F1F1F;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  z-index: 0;
+}
+.cta-fill-invert:hover::before {
+  transform: scaleY(1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cta-fill-invert::before {
+    transition: transform 0.35s ease;
+  }
+}
+
 @keyframes mega-in {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
