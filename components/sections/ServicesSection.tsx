@@ -88,7 +88,7 @@ function ServiceImage({ src, alt }: { src: string; alt: string }) {
   return (
     <div
       className="relative w-[48%] shrink-0 rounded-[8px] overflow-hidden bg-neutral-light"
-      style={{ aspectRatio: '3 / 2' }}
+      style={{ aspectRatio: '16 / 9' }}
     >
       {ok && (
         <Image
