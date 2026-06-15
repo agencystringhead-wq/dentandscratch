@@ -67,7 +67,8 @@ export const SERVICES_NAV = SERVICES.map((s) => ({
 }))
 
 export const SERVICES_SECTION = {
-  heading: 'Mobile repairs we do, right where your car is parked',
+  heading: 'From car park dings to kerbed alloys, we sort it',
+  sub:     'Paint, panels, bumpers, rust and alloys — sorted at your home or workplace.',
   cta:     { label: 'View All Services', href: '/services/' },
 }
 
