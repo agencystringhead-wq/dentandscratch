@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { useInView, useReducedMotion } from 'framer-motion'
 import {
-  Car, Wrench, Droplet, ShieldCheck, Hammer, MapPin, Sun,
+  Car, CarFront, Disc, SprayCan, Droplet, ShieldCheck, MapPin,
   type LucideIcon,
 } from 'lucide-react'
 import { AFTER_BANNER } from '@/lib/content'
@@ -11,25 +11,25 @@ import { AnimateIn } from '@/components/ui/AnimateIn'
 import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
 const BADGE_ICONS: Record<string, LucideIcon> = {
-  Car, Wrench, Droplet, ShieldCheck, Hammer, MapPin, Sun,
+  Car, CarFront, Disc, SprayCan, Droplet, ShieldCheck, MapPin,
 }
 
 export function AfterBannerSection() {
   return (
     <section className="bg-neutral-page" style={{ padding: '80px 0' }}>
-      <div className="max-w-[1100px] mx-auto px-5 lg:px-10 text-center">
+      <div className="max-w-[1200px] mx-auto px-5 lg:px-10 text-center">
 
         {/* Icon badges */}
-        <StaggerIn className="flex flex-wrap justify-center gap-3" staggerDelay={0.08}>
+        <StaggerIn className="flex flex-wrap justify-center gap-2" staggerDelay={0.08}>
           {AFTER_BANNER.badges.map((name, i) => {
             const Icon = BADGE_ICONS[name]
             return (
               <StaggerItem key={name}>
                 <span
-                  className="w-12 h-12 flex items-center justify-center bg-green-primary"
+                  className="w-11 h-11 flex items-center justify-center bg-green-primary"
                   style={{ borderRadius: '5px', transform: `rotate(${i % 2 ? 6 : -6}deg)` }}
                 >
-                  {Icon && <Icon size={22} color="white" />}
+                  {Icon && <Icon size={19} color="white" />}
                 </span>
               </StaggerItem>
             )

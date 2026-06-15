@@ -145,7 +145,7 @@ export const HERO_FORM = {
 
 // "By the numbers" band shown directly under the hero. Icon names map to lucide-react.
 export const AFTER_BANNER = {
-  badges: ['Car', 'Wrench', 'Droplet', 'ShieldCheck', 'Hammer', 'MapPin', 'Sun'],
+  badges: ['Car', 'CarFront', 'Disc', 'SprayCan', 'Droplet', 'ShieldCheck', 'MapPin'],
   headline: [
     { type: 'text', value: 'More than a quick fix' },
     { type: 'pill', src: '/images/hero-band.webp',          alt: 'Mobile repair underway' },
