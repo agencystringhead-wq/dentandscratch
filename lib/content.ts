@@ -261,6 +261,50 @@ export const FOOTER_NAV = {
   ],
 } as const
 
+// ── Footer (Carnov-style rebuild) ────────────────────────────────────────────
+// Newsletter row copy. Submit is validated client-side; // TODO: connect newsletter endpoint (NewsletterForm).
+export const NEWSLETTER = {
+  headingLines: ['Get every update', 'weekly from us.'],
+  placeholder:  'Business email',
+  button:       'Subscribe',
+  success:      "You're on the list — we'll be in touch.",
+  invalid:      'Please enter a valid email address.',
+} as const
+
+export const FOOTER = {
+  blurb:
+    'Mobile dent and scratch repair, done where your car is parked. Most dents, scratches and bumper scuffs sorted in a couple of hours — factory finish, a fraction of panel-shop prices.',
+} as const
+
+// Footer "Company" column — footer-specific labels, routes shared with the main nav.
+export const FOOTER_COMPANY = [
+  { label: 'About Us',        href: '/about-us/' },
+  { label: 'Service Areas',   href: '/service-areas/' },
+  { label: 'Reviews',         href: '/reviews/' },
+  { label: 'Before & After',  href: '/our-work/' },
+  { label: 'Get in touch',    href: '/contact/' },
+  { label: 'Blog & insights', href: '/blog/' },
+] as const
+
+// Social profiles — icons rendered as inline brand SVGs in the footer (lucide v1 has no brand glyphs).
+// TODO: add real social URLs before go-live.
+export const SOCIAL_LINKS = [
+  { key: 'facebook',  label: 'Facebook',  href: '#' },
+  { key: 'instagram', label: 'Instagram', href: '#' },
+  { key: 'linkedin',  label: 'LinkedIn',  href: '#' },
+  { key: 'youtube',   label: 'YouTube',   href: '#' },
+  { key: 'google',    label: 'Google',    href: '#' },
+] as const
+
+// Legal line beside the footer copyright. Sitemap points at the live /sitemap.xml file.
+// TODO: build the /privacy/ and /terms/ pages before go-live — these links are wired ahead of them
+// (the only legal stubs that currently exist are /privacy-policy/ and /terms-conditions/).
+export const FOOTER_LEGAL = [
+  { label: 'Privacy Policy', href: '/privacy/' },
+  { label: 'Terms',          href: '/terms/' },
+  { label: 'Sitemap',        href: '/sitemap.xml' },
+] as const
+
 export const TOP_BAR = {
   servicing:      `Servicing South East Melbourne for over ${STATS.years} years`,
   servicingShort: 'Servicing South East Melbourne',
