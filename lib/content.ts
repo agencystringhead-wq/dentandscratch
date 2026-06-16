@@ -195,7 +195,6 @@ export const SERVICE_AREAS_MEGA = {
   viewAllLabel: 'View all service areas →',
   viewAllHref:  '/service-areas/',
   feature: {
-    // PLACEHOLDER — Unsplash stock, swap for a real on-location photo before go-live
     image:   '/images/mega/service-areas.webp',
     alt:     'A freshly repaired car on a suburban street',
     eyebrow: 'We come to you',
