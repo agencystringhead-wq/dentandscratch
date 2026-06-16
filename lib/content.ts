@@ -306,7 +306,7 @@ export const FOOTER_LEGAL = [
 ] as const
 
 export const TOP_BAR = {
-  servicing:      `Servicing South East Melbourne for over ${STATS.years} years`,
+  servicing:      'Servicing South East Melbourne',
   servicingShort: 'Servicing South East Melbourne',
   rating: {
     score:     STATS.rating,
