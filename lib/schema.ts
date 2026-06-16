@@ -1,5 +1,17 @@
 // JSON-LD structured data. No review schema while placeholder reviews are in use.
-import { BUSINESS } from './content'
+import { BUSINESS, FAQ_SECTION } from './content'
+
+export function getFaqSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_SECTION.items.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  }
+}
 
 export function getLocalBusinessSchema() {
   return {

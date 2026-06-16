@@ -188,6 +188,26 @@ export const SERVICE_AREAS_MEGA = {
   },
 } as const
 
+// Homepage FAQ section (also feeds FAQPage JSON-LD in lib/schema.ts).
+export const FAQ_SECTION = {
+  eyebrow: 'FAQs',
+  heading: 'Questions, sorted',
+  contact: {
+    heading: 'Still not sure?',
+    line:    "Send Diarmuid a photo of the damage and you'll get an answer and a price, usually within the hour.",
+    cta:     { label: 'Get free quote', href: '/free-quote/' },
+  },
+  items: [
+    { q: 'Do you really come to me?', a: "Yes. We're fully mobile, there's no workshop. Diarmuid comes to your home or work anywhere across South East Melbourne and does the repair right there in the driveway." },
+    { q: 'How long does a repair take?', a: 'Most jobs are done in a couple of hours, on the spot. You text a photo first, so there are no surprises when we arrive.' },
+    { q: 'What does it cost?', a: 'A fraction of what a panel shop charges. Every quote is free and comes from a photo, and the price depends on the size and type of damage.' },
+    { q: 'Do I have to claim on insurance?', a: "No. Plenty of jobs are sorted without a claim, so you keep your no-claims bonus. We'll tell you honestly if a claim makes more sense." },
+    { q: "What's paintless dent repair?", a: 'Dents and dings massaged out from behind the panel so your factory paint stays untouched. No filler, no respray, no colour matching, and most are done in a couple of hours.' },
+    // TODO: confirm exact workmanship guarantee terms with Diarmuid before go-live
+    { q: 'Is the work guaranteed?', a: 'Yes, every repair is backed by our workmanship guarantee.' },
+  ],
+} as const
+
 // Header copy for the homepage Service Areas teaser (cards come from SERVICE_AREAS_MEGA.zones).
 export const SERVICE_AREAS_SECTION = {
   eyebrow: 'Where we go',
