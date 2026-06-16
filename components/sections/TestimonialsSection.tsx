@@ -57,10 +57,11 @@ export function TestimonialsSection() {
           <AnimateIn delay={0.08}>
             <div className="relative w-full max-w-[520px] mx-auto lg:ml-auto">
               <div className="relative overflow-hidden bg-neutral-charcoal" style={{ aspectRatio: '4 / 3' }}>
-                {/* PLACEHOLDER — neutral repair scene, not a reviewer portrait */}
+                {/* Per-review car image (changes with the carousel) */}
                 <Image
-                  src={TESTIMONIALS.image}
-                  alt={TESTIMONIALS.alt}
+                  key={item.image}
+                  src={item.image}
+                  alt={item.imageAlt}
                   fill
                   sizes="(max-width: 1024px) 90vw, 520px"
                   className="object-cover"

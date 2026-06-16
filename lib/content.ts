@@ -119,12 +119,9 @@ export const HOW_IT_WORKS = {
   cta: { label: 'Send a photo', href: '/free-quote/' },
 } as const
 
-// Testimonials — quotes come from REVIEWS.items (single source); this holds the chrome only.
+// Testimonials — quotes and per-review images come from REVIEWS.items (single source).
 export const TESTIMONIALS = {
   eyebrow: 'Testimonials',
-  // PLACEHOLDER — neutral repair scene, NOT a portrait of any reviewer
-  image:   '/images/hero-band.webp',
-  alt:     'Mobile dent and scratch repair in progress',
 } as const
 
 export const SERVICE_AREAS_NAV = [
@@ -349,6 +346,8 @@ export const REVIEWS = {
       suburb:   'Berwick',
       initials: 'SK',
       gradient: 'linear-gradient(135deg,#1FD75C,#009028)',
+      image:    '/images/testimonials/car-1.webp',
+      imageAlt: 'Freshly repaired car in a Melbourne driveway',
     },
     {
       text:     'Scuffed my bumper on a pole. Sent a photo at lunch, had a price back straight away, fixed in my driveway two days later. Top bloke.',
@@ -356,6 +355,8 @@ export const REVIEWS = {
       suburb:   'Narre Warren',
       initials: 'MT',
       gradient: 'linear-gradient(135deg,#0a8f33,#00601B)',
+      image:    '/images/testimonials/car-2.webp',
+      imageAlt: 'Repaired car bumper after a mobile repair',
     },
     {
       text:     'After the hail storm I thought my bonnet was done for. Diarmuid sorted the lot for a fraction of what the panel shop quoted. Highly recommend.',
@@ -363,6 +364,8 @@ export const REVIEWS = {
       suburb:   'Cranbourne',
       initials: 'PN',
       gradient: 'linear-gradient(135deg,#15b347,#0a6b22)',
+      image:    '/images/testimonials/car-3.webp',
+      imageAlt: 'Car panel restored after paintless dent repair',
     },
   ],
   badges: [
