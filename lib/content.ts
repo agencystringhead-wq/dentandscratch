@@ -174,9 +174,8 @@ export const SERVICES_MEGA = {
   viewAllLabel: 'View all services →',
   viewAllHref:  '/services/',
   feature: {
-    // PLACEHOLDER — Unsplash stock, swap for a real Diarmuid repair photo before go-live
-    image:   'https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?w=900&q=80&auto=format&fit=crop',
-    alt:     'Bodywork being finished by hand',
+    image:   '/images/mega/services.webp',
+    alt:     'Hands repairing a car body panel',
     caption: 'Most repairs done in about 2 hours',
   },
 } as const
