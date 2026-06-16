@@ -170,11 +170,11 @@ export const SERVICES_MEGA = {
 // Confirm council groupings and suburb routing with Diarmuid before go-live.
 export const SERVICE_AREAS_MEGA = {
   zones: [
-    { zone: 'Casey',             href: '/service-areas/south-east-melbourne/', suburbs: ['Berwick', 'Narre Warren', 'Cranbourne', 'Hampton Park', 'Endeavour Hills'] },
-    { zone: 'Cardinia',          href: '/service-areas/south-east-melbourne/', suburbs: ['Pakenham', 'Officer', 'Beaconsfield', 'Clyde', 'Emerald'] },
-    { zone: 'Greater Dandenong', href: '/service-areas/dandenong-monash/',     suburbs: ['Dandenong', 'Springvale', 'Keysborough', 'Noble Park'] },
-    { zone: 'Frankston',         href: '/service-areas/mornington-peninsula/', suburbs: ['Frankston', 'Carrum Downs', 'Seaford', 'Langwarrin'] },
-    { zone: 'Monash & Knox',     href: '/service-areas/dandenong-monash/',     suburbs: ['Glen Waverley', 'Mulgrave', 'Rowville', 'Wantirna'] },
+    { zone: 'Casey',             accent: true, href: '/service-areas/south-east-melbourne/', suburbs: ['Berwick', 'Narre Warren', 'Cranbourne', 'Clyde', 'Hampton Park', 'Endeavour Hills'] },
+    { zone: 'Cardinia',          href: '/service-areas/south-east-melbourne/', suburbs: ['Pakenham', 'Officer'] },
+    { zone: 'Greater Dandenong', href: '/service-areas/dandenong-monash/',     suburbs: ['Dandenong', 'Keysborough', 'Springvale'] },
+    { zone: 'Frankston',         href: '/service-areas/mornington-peninsula/', suburbs: ['Frankston', 'Carrum Downs'] },
+    { zone: 'Monash & Knox',     href: '/service-areas/dandenong-monash/',     suburbs: ['Rowville', 'Mulgrave', 'Glen Waverley'] },
   ],
   viewAllLabel: 'View all service areas →',
   viewAllHref:  '/service-areas/',
@@ -186,6 +186,13 @@ export const SERVICE_AREAS_MEGA = {
     lead:    'Based in Berwick, mobile right across the south east.',
     caption: 'No workshop visit, no drop-off',
   },
+} as const
+
+// Header copy for the homepage Service Areas teaser (cards come from SERVICE_AREAS_MEGA.zones).
+export const SERVICE_AREAS_SECTION = {
+  eyebrow: 'Where we go',
+  heading: 'We come to you, right across South East Melbourne',
+  sub:     'Based in Berwick, covering the south east. Not in the list? Just ask, we travel a bit further for bigger jobs.',
 } as const
 
 export const FOOTER_NAV = {
