@@ -72,7 +72,7 @@ export function SiteHeader() {
                 height={177}
                 className="h-14 w-auto"
                 priority
-                alt="Dent and Scratch Direct"
+                alt="Dent & Scratch Direct"
               />
             </Link>
           </div>

@@ -6,6 +6,7 @@ import { SiteHeader } from '@/components/layout/SiteHeader'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { SmoothScrollProvider } from '@/components/ui/SmoothScrollProvider'
 import { getLocalBusinessSchema } from '@/lib/schema'
+import { BUSINESS } from '@/lib/content'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -29,7 +30,8 @@ export const metadata: Metadata = {
   title: 'Dent & Scratch Direct | Mobile Car Repairs South East Melbourne',
   description:
     'Mobile dent, scratch and bumper repair across South East Melbourne. We come to you. Same-day quotes, fully insured. Call Diarmuid on 0447 847 655.',
-  metadataBase: new URL('https://dentandscratchdirect.com.au'),
+  metadataBase: new URL(BUSINESS.url),
+  alternates: { canonical: '/' },
   manifest: '/manifest.webmanifest',
   icons: {
     icon: [

@@ -6,8 +6,20 @@ export const BUSINESS = {
   suburb:       'Berwick',
   state:        'VIC',
   country:      'AU',
-  url:          'https://dentandscratchdirect.com.au',
+  url:          'https://www.dentandscratch.com.au',
+  // Display hours — keep identical to openingHoursSpecification in lib/schema.ts (Mon–Sat 07:00–18:00).
+  hours:        'Monday–Saturday, 7:00am–6:00pm',
   abn:          '', // TODO: add ABN before go-live
+} as const
+
+// Single source of truth for headline stats — every rendered figure pulls from here.
+export const STATS = {
+  years:        30,           // "30+ years"
+  carsRepaired: 5600,         // "5,600+ cars repaired"
+  happyClients: 4800,         // "4,800+ happy clients"
+  reviews:      140,          // "140+ reviews"
+  rating:       '4.9',        // Google rating
+  customers:    'thousands',  // qualitative volume word used in copy
 } as const
 
 export type Service = {
@@ -25,6 +37,8 @@ export type Service = {
 
 // Canonical service list — single source for the services-section cards, the nav
 // mega-menu (via SERVICES_NAV below), the /services/ page and the sitemap.
+// PLACEHOLDER imagery — the per-service `image` files below are illustrative/AI stock.
+// Swap for real Diarmuid repair photos before go-live.
 export const SERVICES: Service[] = [
   { key: 'pdr', tag: 'Our specialty', title: 'Paintless Dent Repair', icon: 'CircleDot', featured: true,
     desc:    'Dents and dings massaged out from behind the panel, factory paint kept. No filler, no respray.',
@@ -75,11 +89,11 @@ export const SERVICES_SECTION = {
 // Dark "Why choose us" band. Icon names map to lucide-react.
 export const WHY_CHOOSE = {
   heading: 'Less hassle, less cost, same finish',
-  sub:     'Why thousands of South East Melbourne cars get fixed in the driveway, not the body shop.',
+  sub:     `Why ${STATS.customers} of South East Melbourne cars get fixed in the driveway, not the body shop.`,
   items: [
     { icon: 'MapPin',      title: 'We come to you',                  desc: 'Repairs done at your home or work. No dropping the car off, no waiting around.' },
     { icon: 'Clock',       title: 'Done in 2–3 hours',               desc: 'Most jobs finished while you get on with your day, not gone for days like a panel shop.' },
-    { icon: 'ShieldCheck', title: 'Lifetime workmanship guarantee',  desc: 'Every repair is backed for the life you own the car.' },
+    { icon: 'ShieldCheck', title: 'Lifetime workmanship guarantee',  desc: 'Every repair is backed for as long as you own the car.' },
     { icon: 'BadgeCheck',  title: 'Trusted by dealers and drivers',  desc: 'Dealerships and private customers rely on us to get it right first time.' },
     { icon: 'FileX',       title: 'No insurance claim needed',       desc: 'Sort the damage without a claim, so your no-claims bonus stays intact.' },
     { icon: 'PiggyBank',   title: "Costs less than you'd think",     desc: 'Specialised mobile methods mean most repairs come in well under panel-shop prices.' },
@@ -93,12 +107,12 @@ export const MEET_OWNER = {
   eyebrow: 'Meet the owner',
   heading: "G'day, I'm Diarmuid",
   image:   '/images/diarmuid-portrait.webp',
-  alt:     'Diarmuid Murphy, owner of Dent and Scratch Direct',
+  alt:     'Diarmuid Murphy, owner of Dent & Scratch Direct',
   paras: [
     'He started Dent & Scratch to take the hassle out of fixing a car. Panel shops keep it for days and charge a fortune; he comes to you and sorts most jobs in a couple of hours for a fraction of the price.',
     'No call centres, no runaround. Text a photo, get a price back. 30 years on the tools, every job done personally.',
   ],
-  stats: ['30+ years on the tools', '100% mobile service', 'Replies within the hour'],
+  stats: [`${STATS.years}+ years on the tools`, '100% mobile service', 'Replies within the hour'],
   name:  'Diarmuid Murphy — Owner & operator',
   cta:   { label: 'Get your free quote', href: '/free-quote/' },
 } as const
@@ -114,12 +128,14 @@ export const HOW_IT_WORKS = {
   steps: [
     { num: '01', accent: true, title: 'Send a photo',     desc: "Text Diarmuid a photo of the dent or scratch. You'll get a price and an honest timeframe back, usually within the hour. No coming in, no waiting around." },
     { num: '02',               title: 'We come to you',    desc: "Pick a time and a place, home or work. Diarmuid turns up with everything needed to sort it right where the car's parked." },
-    { num: '03',               title: 'Done the same day', desc: "Most jobs are finished in a couple of hours. Your factory paint stays put, and the work's backed by our workmanship guarantee." },
+    { num: '03',               title: 'Done the same day', desc: "Most jobs are finished in a couple of hours. Your factory paint stays put, and the work's backed by our lifetime workmanship guarantee, for as long as you own the car." },
   ],
   cta: { label: 'Send a photo', href: '/free-quote/' },
 } as const
 
 // Testimonials — quotes and per-review images come from REVIEWS.items (single source).
+// PLACEHOLDER imagery — REVIEWS.items[].image (/images/testimonials/car-*.webp) are illustrative
+// stock. Swap for real customer/repair photos before go-live. (Reviews are placeholder too — see REVIEWS.)
 export const TESTIMONIALS = {
   eyebrow: 'Testimonials',
 } as const
@@ -203,8 +219,7 @@ export const FAQ_SECTION = {
     { q: 'What does it cost?', a: 'A fraction of what a panel shop charges. Every quote is free and comes from a photo, and the price depends on the size and type of damage.' },
     { q: 'Do I have to claim on insurance?', a: "No. Plenty of jobs are sorted without a claim, so you keep your no-claims bonus. We'll tell you honestly if a claim makes more sense." },
     { q: "What's paintless dent repair?", a: 'Dents and dings massaged out from behind the panel so your factory paint stays untouched. No filler, no respray, no colour matching, and most are done in a couple of hours.' },
-    // TODO: confirm exact workmanship guarantee terms with Diarmuid before go-live
-    { q: 'Is the work guaranteed?', a: 'Yes, every repair is backed by our workmanship guarantee.' },
+    { q: 'Is the work guaranteed?', a: 'Yes, every repair is backed by our lifetime workmanship guarantee, for as long as you own the car.' },
   ],
 } as const
 
@@ -214,6 +229,8 @@ export const FOOTER_CTA = {
   heading: ['Got a dent or a scratch?', "Let's sort it where you're parked."],
   sub:     ["Send Diarmuid a photo and you'll get a price back, usually within the hour.", 'No workshop visit, no fuss.'],
   cta:     { label: 'Get your free quote', href: '/free-quote/' },
+  // PLACEHOLDER imagery — fanned strip mixes illustrative testimonial cars + service stock.
+  // Swap for real repair photos before go-live.
   images: [
     { src: '/images/testimonials/car-1.webp',     alt: 'A repaired car in a Melbourne driveway' },
     { src: '/images/services/pdr.webp',           alt: 'Paintless dent repair on a car panel' },
@@ -245,25 +262,28 @@ export const FOOTER_NAV = {
 } as const
 
 export const TOP_BAR = {
-  servicing:      'Servicing South East Melbourne for over 30 years',
+  servicing:      `Servicing South East Melbourne for over ${STATS.years} years`,
   servicingShort: 'Servicing South East Melbourne',
   rating: {
-    score:     '4.9',
+    score:     STATS.rating,
     label:     'Google reviews',
-    ariaLabel: '4.9 out of 5 on Google',
+    ariaLabel: `${STATS.rating} out of 5 on Google`,
     href:      '/reviews/',
   },
 } as const
 
 export const HERO = {
-  kicker:      'Mobile dent & scratch repair with 30 years of experience',
+  kicker:      `Mobile dent & scratch repair with ${STATS.years} years of experience`,
   heading:     "Melbourne's go-to mobile",
   accentLine:  'dent & scratch repair expert',
-  para:        "We're Dent and Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
+  para:        "We're Dent & Scratch Direct. Diarmuid drives to your home or work, sorts most dents, scratches and bumper scuffs in a couple of hours, and charges a fraction of a panel shop. No workshop visit, no fuss.",
   checks:      ['We come to you', 'Same day quotes', 'Fully insured'],
-  socialProof: '4.9 · hundreds of happy drivers',
-  // Real avatars (optimised WebP). Missing files fall back to grey circles.
+  socialProof: `${STATS.rating} · hundreds of happy drivers`,
+  // PLACEHOLDER — generic avatar images; swap for real customer photos (or remove) before go-live.
+  // Missing files fall back to grey circles.
   avatars:     ['/images/avatars/avatar-1.webp', '/images/avatars/avatar-2.webp', '/images/avatars/avatar-3.webp', '/images/avatars/avatar-4.webp'],
+  // PLACEHOLDER — hero-band.webp is illustrative (and ~1.3 MB; reused in HOW_IT_WORKS + AFTER_BANNER pills).
+  // Swap for a real Diarmuid repair photo AND re-export smaller (<300 KB) before go-live.
   bandImage:   '/images/hero-band.webp',
   bandAlt:     "Mobile dent repair at a customer's driveway",
 } as const
@@ -301,15 +321,16 @@ export const AFTER_BANNER = {
     { type: 'text', value: 'done right where your car is parked.' },
   ],
   stats: [
-    { value: 30,   suffix: '+', label: 'Years of Experience' },
-    { value: 5600, suffix: '+', label: 'Cars Repaired' },
-    { value: 4800, suffix: '+', label: 'Happy Clients' },
-    { value: 140,  suffix: '+', label: 'Top Reviews' },
+    { value: STATS.years,        suffix: '+', label: 'Years of Experience' },
+    { value: STATS.carsRepaired, suffix: '+', label: 'Cars Repaired' },
+    { value: STATS.happyClients, suffix: '+', label: 'Happy Clients' },
+    { value: STATS.reviews,      suffix: '+', label: 'Top Reviews' },
   ],
 } as const
 
 // Before & After work cards. Each file is a single composite before|after image.
 // Alt text is neutral until real repair/suburb details are confirmed; add `suburb` when known.
+// NOTE: these composites are PNG (~0.7–1 MB each) — re-export as WebP (<300 KB) before go-live.
 export type WorkCard =
   | { kind: 'composite'; image: string; alt: string; suburb?: string }
   | { kind: 'pair'; before: string; after: string; alt: string; suburb?: string }
@@ -364,7 +385,7 @@ export const ABOUT = {
   eyebrow: "Who you'll deal with",
   heading: "G'day, I'm Diarmuid",
   paras: [
-    "I started Dent and Scratch to take the hassle out of fixing your car. The big panel shops keep your car for days and charge a fortune. I come to you, sort most jobs in a few hours, and charge a fraction of the price.",
+    "I started Dent & Scratch to take the hassle out of fixing your car. The big panel shops keep your car for days and charge a fortune. I come to you, sort most jobs in a few hours, and charge a fraction of the price.",
     "No call centres, no runaround. You text me a photo, I text you a price. Simple as that.",
   ],
   stats: [

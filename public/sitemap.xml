@@ -3,14 +3,14 @@
 
   <!-- Home -->
   <url>
-    <loc>https://dentandscratchdirect.com.au/</loc>
+    <loc>https://www.dentandscratch.com.au/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Pillar service page -->
   <url>
-    <loc>https://dentandscratchdirect.com.au/paintless-dent-repair-pdr/</loc>
+    <loc>https://www.dentandscratch.com.au/paintless-dent-repair-pdr/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -19,30 +19,30 @@
     TODO: add each page below as you finish its content and remove its noindex.
     Priority tiers: 0.9 conversion · 0.85 service+zone · 0.8 pillar · 0.7 support
 
-    <url><loc>https://dentandscratchdirect.com.au/free-quote/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/our-work/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/reviews/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/about-us/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/faqs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/services/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/paint-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/bumper-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/hail-damage-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/scratch-and-chip-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/minor-rust-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/plastic-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/alloy-wheel-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/south-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/dandenong-monash/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/dandenong-ranges/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/outer-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/inner-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/bayside-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/mornington-peninsula/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
-    <url><loc>https://dentandscratchdirect.com.au/service-areas/west-gippsland/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/free-quote/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/our-work/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/reviews/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/about-us/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/faqs/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/services/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/paint-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/bumper-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/hail-damage-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/scratch-and-chip-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/minor-rust-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/plastic-repairs/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/alloy-wheel-repair/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/south-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/dandenong-monash/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/dandenong-ranges/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/outer-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/inner-east-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/bayside-melbourne/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/mornington-peninsula/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+    <url><loc>https://www.dentandscratch.com.au/service-areas/west-gippsland/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   -->
 
 </urlset>

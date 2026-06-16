@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 // TODO: Remove noindex once page has real content
 export const metadata: Metadata = {
   title: 'Blog | Dent & Scratch Direct',
-  description: 'TODO: meta description — car care tips and repair guides from Dent and Scratch Direct.',
+  description: 'TODO: meta description — car care tips and repair guides from Dent & Scratch Direct.',
   robots: { index: false, follow: true },
 }
 

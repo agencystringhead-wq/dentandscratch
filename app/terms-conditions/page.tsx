@@ -4,7 +4,7 @@ import { BUSINESS } from '@/lib/content'
 // TODO: Remove noindex once real legal copy is in place
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Dent & Scratch Direct',
-  description: 'Terms and conditions for Dent and Scratch Direct.',
+  description: 'Terms and conditions for Dent & Scratch Direct.',
   robots: { index: false, follow: true },
 }
 

@@ -25,7 +25,7 @@ export function SiteFooter() {
                 width={500}
                 height={177}
                 className="h-10 w-auto"
-                alt="Dent and Scratch Direct"
+                alt="Dent & Scratch Direct"
               />
             </Link>
             <p className="font-body font-medium text-[16px] text-neutral-muted leading-relaxed mt-5">
@@ -87,6 +87,9 @@ export function SiteFooter() {
               <span className="font-body font-medium text-[16px] text-neutral-muted">
                 {BUSINESS.suburb}, {BUSINESS.state} · South East Melbourne
               </span>
+              <span className="font-body font-medium text-[16px] text-neutral-muted">
+                {BUSINESS.hours}
+              </span>
               <Link
                 href="/free-quote/"
                 className="mt-2 self-start font-body font-medium text-[16px] bg-green-primary text-white px-6 py-3 no-underline border-2 border-green-primary hover:bg-green-hover hover:border-green-hover transition-colors"
@@ -101,7 +104,7 @@ export function SiteFooter() {
         {/* Legal row */}
         <div className="mt-10 pt-6 border-t border-[#333333] flex flex-wrap gap-4 justify-between items-center">
           <span className="font-body font-medium text-[14px] text-neutral-muted">
-            &copy; 2026 Dent and Scratch Direct. All rights reserved.
+            &copy; 2026 Dent &amp; Scratch Direct. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-6">
             {FOOTER_NAV.legal.map(({ label, href }) => (
