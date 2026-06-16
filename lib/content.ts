@@ -208,6 +208,23 @@ export const FAQ_SECTION = {
   ],
 } as const
 
+// Closing footer CTA band — fanned photo strip + single CTA.
+export const FOOTER_CTA = {
+  // Two balanced lines each; the break holds on desktop and wraps naturally on mobile.
+  heading: ['Got a dent or a scratch?', "Let's sort it where you're parked."],
+  sub:     ["Send Diarmuid a photo and you'll get a price back, usually within the hour.", 'No workshop visit, no fuss.'],
+  cta:     { label: 'Get your free quote', href: '/free-quote/' },
+  images: [
+    { src: '/images/testimonials/car-1.webp',     alt: 'A repaired car in a Melbourne driveway' },
+    { src: '/images/services/pdr.webp',           alt: 'Paintless dent repair on a car panel' },
+    { src: '/images/testimonials/car-2.webp',     alt: 'A car after a mobile bumper repair' },
+    { src: '/images/services/bumper-repairs.webp', alt: 'Scuffed bumper being repaired' },
+    { src: '/images/testimonials/car-3.webp',     alt: 'A freshly repaired car panel' },
+    { src: '/images/services/paint-repair.webp',  alt: 'Paint repair colour-matched on a panel' },
+    { src: '/images/services/hail-damage.webp',   alt: 'Hail damage lifted from a car panel' },
+  ],
+} as const
+
 // Header copy for the homepage Service Areas teaser (cards come from SERVICE_AREAS_MEGA.zones).
 export const SERVICE_AREAS_SECTION = {
   eyebrow: 'Where we go',

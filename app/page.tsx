@@ -8,7 +8,7 @@ import { HowItWorksSection }   from '@/components/sections/HowItWorksSection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection'
 import { FaqSection }          from '@/components/sections/FaqSection'
-import { CtaSection }          from '@/components/sections/CtaSection'
+import { FooterCtaSection }    from '@/components/sections/FooterCtaSection'
 
 export default function HomePage() {
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <ServiceAreasSection />
       <FaqSection />
-      <CtaSection />
+      <FooterCtaSection />
     </main>
   )
 }
