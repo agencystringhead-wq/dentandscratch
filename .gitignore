@@ -36,3 +36,21 @@ next-env.d.ts
 
 # playwright artifacts
 /.playwright-mcp
+
+# local scratch — design refs / screenshots, not served (root-anchored so public/ assets are unaffected)
+.claude/
+/design-refs/
+/drivora-wcopilot.webflow.io-DESIGN.md
+/cta-footer.png
+/drivora-reskin-full.png
+/feature-cards-full.png
+/feature-cards.png
+/features-why-about.png
+/footer.png
+/fullpage.png
+/header-after.png
+/hero-nav.png
+/nav-after.png
+/process-reviews.png
+/process-steps.png
+/services-features.png
