@@ -5,6 +5,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { TESTIMONIALS, REVIEWS } from '@/lib/content'
 import { AnimateIn } from '@/components/ui/AnimateIn'
 
+// Bottom-right corner removed in a 3-step descending pixel staircase (22px steps).
+const STEP_CLIP =
+  'polygon(0 0, 100% 0, 100% calc(100% - 66px), calc(100% - 22px) calc(100% - 66px), calc(100% - 22px) calc(100% - 44px), calc(100% - 44px) calc(100% - 44px), calc(100% - 44px) calc(100% - 22px), calc(100% - 66px) calc(100% - 22px), calc(100% - 66px) 100%, 0 100%)'
+
 export function TestimonialsSection() {
   const items = REVIEWS.items
   const [i, setI] = useState(0)
@@ -13,7 +17,7 @@ export function TestimonialsSection() {
   const next = () => setI((n) => (n + 1) % items.length)
 
   return (
-    <section className="relative overflow-hidden bg-neutral-ink" style={{ padding: '80px 0' }}>
+    <section className="relative z-10 overflow-hidden bg-neutral-ink pt-24 pb-20 lg:pt-[160px]">
       <div className="relative max-w-[1200px] mx-auto px-5 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
@@ -25,8 +29,8 @@ export function TestimonialsSection() {
             </span>
 
             <blockquote
-              className="font-display font-normal text-white mt-8"
-              style={{ fontSize: 'clamp(22px,2.6vw,32px)', lineHeight: '1.4' }}
+              className="font-body font-medium text-white mt-8"
+              style={{ fontSize: 'clamp(24px,2.4vw,30px)', lineHeight: '1.55' }}
             >
               &ldquo;{item.text}&rdquo;
             </blockquote>
@@ -53,21 +57,24 @@ export function TestimonialsSection() {
             </div>
           </AnimateIn>
 
-          {/* Right — image with a pixel-notch corner */}
+          {/* Right — car image with a stepped corner CUT OUT of the bottom-right
+              (clip-path reveals the dark section behind); other 3 corners rounded 5px. */}
           <AnimateIn delay={0.08}>
-            <div className="relative w-full max-w-[520px] mx-auto lg:ml-auto">
-              <div className="relative overflow-hidden bg-neutral-charcoal" style={{ aspectRatio: '4 / 3' }}>
+            <div className="relative w-full max-w-[460px] mx-auto lg:max-w-none rounded-[5px] overflow-hidden">
+              <div
+                className="relative bg-neutral-charcoal"
+                style={{ aspectRatio: '4 / 5', clipPath: STEP_CLIP }}
+              >
                 {/* Per-review car image (changes with the carousel) */}
                 <Image
                   key={item.image}
                   src={item.image}
                   alt={item.imageAlt}
                   fill
-                  sizes="(max-width: 1024px) 90vw, 520px"
+                  sizes="(max-width: 1024px) 90vw, 560px"
                   className="object-cover"
                 />
               </div>
-              <ImageNotch />
             </div>
           </AnimateIn>
 
@@ -77,22 +84,3 @@ export function TestimonialsSection() {
   )
 }
 
-// Cream stepped-pixel notch in the image's bottom-right corner.
-function ImageNotch() {
-  const steps = [
-    { size: 36, bottom: 0,  right: 0 },
-    { size: 24, bottom: 36, right: 36 },
-    { size: 14, bottom: 60, right: 60 },
-  ]
-  return (
-    <div className="absolute bottom-0 right-0 pointer-events-none" aria-hidden="true">
-      {steps.map((s, i) => (
-        <div
-          key={i}
-          className="absolute bg-neutral-page"
-          style={{ bottom: `${s.bottom}px`, right: `${s.right}px`, width: `${s.size}px`, height: `${s.size}px` }}
-        />
-      ))}
-    </div>
-  )
-}

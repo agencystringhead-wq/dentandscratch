@@ -1,12 +1,11 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import {
   Camera, MessageCircle, MapPin, Car, Wrench, Clock, ShieldCheck,
   type LucideIcon,
 } from 'lucide-react'
-import { HOW_IT_WORKS, BUSINESS } from '@/lib/content'
+import { HOW_IT_WORKS } from '@/lib/content'
 import { AnimateIn } from '@/components/ui/AnimateIn'
 import { StaggerIn, StaggerItem } from '@/components/ui/StaggerIn'
 
@@ -15,9 +14,10 @@ const ICONS: Record<string, LucideIcon> = {
 }
 
 export function HowItWorksSection() {
-  const { badges, headline, steps, cta } = HOW_IT_WORKS
+  const { badges, headline, steps } = HOW_IT_WORKS
   return (
-    <section className="bg-neutral-page border-t border-neutral-border" style={{ padding: '80px 0' }}>
+    // relative z-20 so the offset card 02 floats above the dark Testimonials section below
+    <section className="relative z-20 bg-neutral-page border-t border-neutral-border" style={{ padding: '80px 0' }}>
       <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
 
         {/* Icon badges */}
@@ -55,32 +55,21 @@ export function HowItWorksSection() {
           </h2>
         </AnimateIn>
 
-        {/* Step cards — zigzag on desktop, stacked on mobile */}
+        {/* Step cards — zigzag on desktop (card 02 offset down to straddle the next
+            section), stacked normally on mobile. */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 items-start">
           {steps.map((s, i) => {
             const accent = (s as { accent?: boolean }).accent === true
+            // card 02 sits lower and floats above the dark section seam on desktop
+            const offset = i === 1 ? 'lg:relative lg:z-30 lg:translate-y-[210px]' : ''
             return (
-              <AnimateIn key={s.num} delay={i * 0.08} className={i === 1 ? 'lg:mt-24' : ''}>
-                <StepCard num={s.num} title={s.title} desc={s.desc} accent={accent} />
-              </AnimateIn>
+              <div key={s.num} className={offset}>
+                <AnimateIn delay={i * 0.08}>
+                  <StepCard num={s.num} title={s.title} desc={s.desc} accent={accent} />
+                </AnimateIn>
+              </div>
             )
           })}
-        </div>
-
-        {/* CTA */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-16">
-          <Link
-            href={cta.href}
-            className="cta-fill-invert inline-block rounded-[5px] bg-green-primary text-white font-body font-medium text-[16px] px-8 py-3.5 no-underline"
-          >
-            <span className="relative z-10">{cta.label}</span>
-          </Link>
-          <a
-            href={BUSINESS.phoneHref}
-            className="font-body font-medium text-[16px] text-neutral-muted hover:text-neutral-ink transition-colors no-underline"
-          >
-            or call {BUSINESS.phone}
-          </a>
         </div>
 
       </div>
