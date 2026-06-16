@@ -103,6 +103,30 @@ export const MEET_OWNER = {
   cta:   { label: 'Get your free quote', href: '/free-quote/' },
 } as const
 
+// "How it works" — green badges, headline with an inline image pill, 3 zigzag step cards.
+export const HOW_IT_WORKS = {
+  badges: ['Camera', 'MessageCircle', 'MapPin', 'Car', 'Wrench', 'Clock', 'ShieldCheck'],
+  headline: [
+    { type: 'text', value: 'From a photo to a finished repair,' },
+    { type: 'pill', src: '/images/hero-band.webp', alt: 'Mobile repair in progress' },
+    { type: 'text', value: 'usually in a couple of hours' },
+  ],
+  steps: [
+    { num: '01', accent: true, title: 'Send a photo',     desc: "Text Diarmuid a photo of the dent or scratch. You'll get a price and an honest timeframe back, usually within the hour. No coming in, no waiting around." },
+    { num: '02',               title: 'We come to you',    desc: "Pick a time and a place, home or work. Diarmuid turns up with everything needed to sort it right where the car's parked." },
+    { num: '03',               title: 'Done the same day', desc: "Most jobs are finished in a couple of hours. Your factory paint stays put, and the work's backed by our workmanship guarantee." },
+  ],
+  cta: { label: 'Send a photo', href: '/free-quote/' },
+} as const
+
+// Testimonials — quotes come from REVIEWS.items (single source); this holds the chrome only.
+export const TESTIMONIALS = {
+  eyebrow: 'Testimonials',
+  // PLACEHOLDER — neutral repair scene, NOT a portrait of any reviewer
+  image:   '/images/hero-band.webp',
+  alt:     'Mobile dent and scratch repair in progress',
+} as const
+
 export const SERVICE_AREAS_NAV = [
   { label: 'Berwick & South-East Corridor',   href: '/service-areas/south-east-melbourne/' },
   { label: 'Greater Dandenong & Monash',       href: '/service-areas/dandenong-monash/' },

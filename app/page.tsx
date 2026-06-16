@@ -4,9 +4,9 @@ import { WorkSection }         from '@/components/sections/WorkSection'
 import { ServicesSection }     from '@/components/sections/ServicesSection'
 import { WhyChooseSection }    from '@/components/sections/WhyChooseSection'
 import { MeetOwnerSection }    from '@/components/sections/MeetOwnerSection'
+import { HowItWorksSection }   from '@/components/sections/HowItWorksSection'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { WhyUsSection }        from '@/components/sections/WhyUsSection'
-import { ProcessSection }      from '@/components/sections/ProcessSection'
-import { ReviewsSection }      from '@/components/sections/ReviewsSection'
 import { GallerySection }      from '@/components/sections/GallerySection'
 import { CtaSection }          from '@/components/sections/CtaSection'
 
@@ -19,9 +19,9 @@ export default function HomePage() {
       <ServicesSection />
       <WhyChooseSection />
       <MeetOwnerSection />
+      <HowItWorksSection />
+      <TestimonialsSection />
       <WhyUsSection />
-      <ProcessSection />
-      <ReviewsSection />
       <GallerySection />
       <CtaSection />
     </main>
