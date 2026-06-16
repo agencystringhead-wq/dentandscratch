@@ -196,8 +196,8 @@ export const SERVICE_AREAS_MEGA = {
   viewAllHref:  '/service-areas/',
   feature: {
     // PLACEHOLDER — Unsplash stock, swap for a real on-location photo before go-live
-    image:   'https://images.unsplash.com/photo-1694678505383-676d78ea3b96?w=900&q=80&auto=format&fit=crop',
-    alt:     'A car being cleaned up on location',
+    image:   '/images/mega/service-areas.webp',
+    alt:     'A freshly repaired car on a suburban street',
     eyebrow: 'We come to you',
     lead:    'Based in Berwick, mobile right across the south east.',
     caption: 'No workshop visit, no drop-off',
