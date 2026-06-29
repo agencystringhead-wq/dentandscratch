@@ -35,6 +35,26 @@ export function getServiceSchema(opts: { name: string; description: string; path
   }
 }
 
+// Light per-page schema (type from the copy doc's recommendation: AboutPage, ContactPage, etc.).
+// NOTE: richer markup the doc suggests (Person on About, aggregateRating/Review on Reviews,
+// ImageObject on Our Work, OfferCatalog on Services) is deferred to a dedicated schema pass.
+export function getWebPageSchema(opts: { type: string; name: string; description: string; path: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': opts.type,
+    name: opts.name,
+    description: opts.description,
+    url: `${BUSINESS.url}${opts.path}`,
+    isPartOf: { '@type': 'WebSite', name: BUSINESS.name, url: BUSINESS.url },
+    publisher: {
+      '@type': ['LocalBusiness', 'AutoRepair'],
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone,
+      url: BUSINESS.url,
+    },
+  }
+}
+
 export function getLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',

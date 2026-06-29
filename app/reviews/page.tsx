@@ -1,49 +1,49 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { REVIEWS, BUSINESS } from '@/lib/content'
+import { PageTemplate } from '@/components/templates/PageTemplate'
+import { PAGES } from '@/lib/content'
+import { toMetadata } from '@/lib/seo'
+import { getWebPageSchema } from '@/lib/schema'
+import { AnimateIn } from '@/components/ui/AnimateIn'
+import { ContentBlocks } from '@/components/ui/ContentBlocks'
 
-// TODO: Remove noindex once page has real content
-export const metadata: Metadata = {
-  title: 'Reviews | Dent & Scratch Direct',
-  description: 'TODO: meta description — customer reviews for mobile dent and scratch repair in South East Melbourne.',
-  robots: { index: false, follow: true },
-}
+const PATH = '/reviews/'
+export const metadata = toMetadata(PAGES.reviews.meta, PATH)
 
-export default function ReviewsPage() {
+// blocks[0] = the verbatim customer quotes; the rest are narrative sections.
+const [quotesBlock, ...restBlocks] = PAGES.reviews.blocks
+
+export default function Page() {
   return (
-    <main className="min-h-[60vh] max-w-7xl mx-auto px-5 py-24">
-      <span className="font-label font-semibold text-[13px] tracking-[0.2em] uppercase text-green-primary">
-        {REVIEWS.eyebrow}
-      </span>
-      <h1 className="font-display font-extrabold text-[clamp(32px,5vw,56px)] tracking-tight text-neutral-ink mt-3">
-        {REVIEWS.heading}
-      </h1>
-      {/* TODO: full reviews page — embed Google reviews widget or pull live reviews, AggregateRating header */}
-      {/* TODO: Add Review + AggregateRating JSON-LD schema */}
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {REVIEWS.items.map(({ name, suburb, text, initials, gradient }) => (
-          <div key={name} className="bg-white border border-neutral-border rounded-2xl p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-[13px] shrink-0"
-                style={{ background: gradient }}
-              >
-                {initials}
-              </div>
-              <div>
-                <div className="font-semibold text-[14px] text-neutral-ink">{name}</div>
-                <div className="text-[12px] text-neutral-muted">{suburb}</div>
-              </div>
-            </div>
-            <p className="text-[14px] text-neutral-muted leading-[1.6]">{text}</p>
+    <PageTemplate
+      page={PAGES.reviews}
+      eyebrow="Reviews"
+      schema={getWebPageSchema({ type: 'CollectionPage', name: PAGES.reviews.meta.title, description: PAGES.reviews.meta.description, path: PATH })}
+    >
+      {/* Genuine customer reviews, verbatim. Dollar figures stay inside the quotes — never restated as our pricing. */}
+      <section className="bg-white border-t border-neutral-border" style={{ padding: '72px 0' }}>
+        <div className="max-w-[1200px] mx-auto px-5 lg:px-10">
+          <AnimateIn>
+            <h2 className="font-display font-bold text-neutral-ink mb-8" style={{ fontSize: 'clamp(24px,3vw,34px)' }}>
+              {quotesBlock.h2}
+            </h2>
+          </AnimateIn>
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5">
+            {quotesBlock.body?.map((q, i) => (
+              <AnimateIn key={i}>
+                <blockquote className="break-inside-avoid mb-5 bg-neutral-page border border-neutral-border rounded-[5px] p-6">
+                  <span aria-hidden="true" className="text-[#FAB700] text-[13px] tracking-[2px]">★★★★★</span>
+                  <p className="font-body font-medium text-[15px] text-neutral-ink leading-relaxed mt-3">{q}</p>
+                </blockquote>
+              </AnimateIn>
+            ))}
           </div>
-        ))}
-      </div>
-      <div className="mt-10">
-        <Link href="/free-quote/" className="no-underline inline-flex items-center gap-2 bg-green-primary text-white font-bold text-[15px] px-[24px] py-[13px] rounded-chip hover:-translate-y-0.5 hover:bg-green-dark transition-all">
-          Get a free quote &#8594;
-        </Link>
-      </div>
-    </main>
+        </div>
+      </section>
+
+      <section className="bg-neutral-page border-t border-neutral-border" style={{ padding: '64px 0' }}>
+        <div className="max-w-[760px] mx-auto px-5 lg:px-10">
+          <ContentBlocks blocks={restBlocks} />
+        </div>
+      </section>
+    </PageTemplate>
   )
 }
