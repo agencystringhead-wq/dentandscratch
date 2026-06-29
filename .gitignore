@@ -54,3 +54,6 @@ next-env.d.ts
 /process-reviews.png
 /process-steps.png
 /services-features.png
+
+# internal reference — website copy doc (not shipped)
+/docs/*.docx

@@ -385,13 +385,6 @@ export const WORK_SECTION = {
   ] as WorkCard[],
 }
 
-export const TRUST_STATS = [
-  { value: '30yr', label: 'On the tools, around Melbourne' },
-  { value: '~2h',  label: 'Typical repair, at your place' },
-  { value: '4.9★', label: 'From hundreds of drivers' },
-  { value: '$0',   label: 'Quotes, always free' },
-] as const
-
 export const PDR_SECTION = {
   eyebrow: 'Our specialty · high value',
   heading: 'Paintless Dent Repair',
@@ -411,13 +404,6 @@ export const PDR_SECTION = {
     label: 'Typical PDR turnaround, done at your place while you carry on with your day.',
   },
 } as const
-
-export const BEFORE_AFTER_CATS = [
-  { key: 'pdr',    label: 'PDR',    title: 'Paintless Dent Repair', blurb: 'Door ding massaged out, factory paint untouched.' },
-  { key: 'bumper', label: 'Bumper', title: 'Bumper Repair',         blurb: 'Scuffed corner reshaped, prepped and refinished.' },
-  { key: 'paint',  label: 'Paint',  title: 'Paint Repair',          blurb: 'Deep scratch colour matched and blended.' },
-  { key: 'hail',   label: 'Hail',   title: 'Hail Damage',           blurb: 'Dozens of dents lifted across the panel.' },
-] as const
 
 export const ABOUT = {
   eyebrow: "Who you'll deal with",
@@ -479,22 +465,6 @@ export const REVIEWS = {
   ],
 } as const
 
-export const SERVICE_AREA = {
-  eyebrow: 'Where we go',
-  heading: 'Servicing South East Melbourne',
-  sub:     "Based in Berwick, covering the south east. Not sure if you're in the zone? Just ask.",
-  suburbs: [
-    'Berwick', 'Pakenham', 'Officer', 'Narre Warren', 'Cranbourne',
-    'Clyde', 'Hampton Park', 'Endeavour Hills', 'Dandenong', 'Keysborough',
-    'Frankston', 'Carrum Downs', 'Rowville', 'Mulgrave', 'Glen Waverley', 'Springvale',
-  ],
-} as const
-
-export const CTA_SECTION = {
-  heading: 'Get that dent sorted this week',
-  body:    'Send Diarmuid a photo now and have a free quote back within the hour. No obligation.',
-} as const
-
 export const QUOTE_FORM = {
   title:        'Get your free quote',
   sub:          'Snap a photo. We reply within the hour.',
@@ -502,38 +472,6 @@ export const QUOTE_FORM = {
   steps:        ['Details', 'Damage', 'Send'] as const,
   btnLabels:    ['Next, the damage', 'Review', 'Send to Diarmuid'] as const,
   serviceChips: ['PDR', 'Bumper', 'Paint', 'Hail'] as const,
-} as const
-
-export const FEATURES = [
-  { icon: 'MapPin',        title: 'We come to you',    body: 'Home, work, car park — anywhere in South East Melbourne. No workshop, no drop-off.' },
-  { icon: 'Shield',        title: 'Factory paint kept', body: 'PDR works the metal back from behind the panel. No filler, no respray, original finish.' },
-  { icon: 'ShieldCheck',   title: 'Fully insured',      body: 'All work is fully insured and backed by Diarmuid personally.' },
-  { icon: 'Clock',         title: 'Fast turnaround',    body: 'Most repairs done in a couple of hours. Same day in most cases.' },
-] as const
-
-export const WHY_US_POINTS = [
-  { icon: 'Wrench',          label: '30 years on the tools' },
-  { icon: 'Car',             label: '100% mobile service' },
-  { icon: 'Paintbrush',      label: 'Factory paint kept' },
-  { icon: 'MessageCircle',   label: 'Free quote, reply in 1 hour' },
-  { icon: 'ShieldCheck',     label: 'Fully insured' },
-  { icon: 'Star',            label: '4.9 Google rating' },
-] as const
-
-export const WHY_SECTION = {
-  eyebrow: 'Why drivers choose us',
-  heading: 'Factory finish, at your door.',
-} as const
-
-export const PROCESS_SECTION = {
-  eyebrow: 'How it works',
-  heading: 'Three steps, done in a couple of hours.',
-} as const
-
-export const GALLERY_SECTION = {
-  eyebrow: 'Real repairs',
-  heading: 'Before and after',
-  sub:     "Every repair done on the customer's driveway.",
 } as const
 
 export const PDR_PAGE = {
