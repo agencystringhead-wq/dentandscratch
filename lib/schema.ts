@@ -1,15 +1,37 @@
 // JSON-LD structured data. No review schema while placeholder reviews are in use.
 import { BUSINESS, FAQ_SECTION } from './content'
+import type { FAQ } from './content'
 
-export function getFaqSchema() {
+// FAQPage schema. Defaults to the homepage FAQ block; pass a page's own FAQs to reuse.
+export function getFaqSchema(items: readonly FAQ[] = FAQ_SECTION.items) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: FAQ_SECTION.items.map(({ q, a }) => ({
+    mainEntity: items.map(({ q, a }) => ({
       '@type': 'Question',
       name: q,
       acceptedAnswer: { '@type': 'Answer', text: a },
     })),
+  }
+}
+
+// Service schema for a single service page, linked to the AutoRepair business.
+export function getServiceSchema(opts: { name: string; description: string; path: string }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: opts.name,
+    serviceType: opts.name,
+    description: opts.description,
+    url: `${BUSINESS.url}${opts.path}`,
+    areaServed: { '@type': 'AdministrativeArea', name: 'South East Melbourne' },
+    provider: {
+      '@type': ['LocalBusiness', 'AutoRepair'],
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone,
+      email: BUSINESS.email,
+      url: BUSINESS.url,
+    },
   }
 }
 
