@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //   /free-quote/ 0.9 · /our-work/ 0.8 · /reviews/ 0.8 · /about-us/ 0.7 · /faqs/ 0.7
   //   /contact/ 0.7 · /blog/ 0.7 (weekly) · /services/ 0.85
   //   /paint-repairs/ /bumper-repairs/ /hail-damage-repair/ /scratch-and-chip-repair/
-  //   /minor-rust-repairs/ /plastic-repairs/ /alloy-wheel-repair/ — all 0.85
+  //   /minor-rust-repairs/ /plastic-repairs/ — all 0.85
   //   /service-areas/ + the 8 zone pages (south-east-melbourne, dandenong-monash,
   //   dandenong-ranges, outer-east-melbourne, inner-east-melbourne, bayside-melbourne,
   //   mornington-peninsula, west-gippsland) — all 0.85

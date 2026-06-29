@@ -68,10 +68,6 @@ export const SERVICES: Service[] = [
     desc:    'Cracked plastic trims, mirrors and panels repaired instead of replaced.',
     navDesc: 'Cracked trims, mirrors and bumpers brought back.',
     image: '/images/services/plastic-repair.webp', alt: 'Cracked plastic car trim being repaired',     href: '/plastic-repairs/' },
-  { key: 'alloy', tag: 'Kerb rash', title: 'Alloy Wheel Repair', icon: 'Disc3',
-    desc:    'Scuffed and gutter-rashed alloys refinished back to a clean factory look.',
-    navDesc: 'Kerbed and scuffed alloys refinished to match.',
-    image: '/images/services/alloy-wheel.webp',    alt: 'Kerb-rashed alloy wheel being refinished',    href: '/alloy-wheel-repair/' },
 ]
 
 // Derived nav view — keeps the mega-menu, /services/ page, sitemap and mobile nav on
